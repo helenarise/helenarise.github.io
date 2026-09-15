@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Diário — Helena Rise</title>
+  <meta name="description" content="O diário da Helena Rise: bastidores, humores e agenda. Escrito por ela, sem filtro."/>
+  <link rel="canonical" href="https://www.helenarise.com.br/diario.html"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230e0d0b'/><text x='50' y='70' font-size='62' font-family='Georgia,serif' fill='%23b8913a' text-anchor='middle'>H</text></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--ink:#0e0d0b;--gold:#b8913a;--gold-pale:#d4b06a;--white:#fdfcfa;--fog:#9a9590;--serif:'Playfair Display',Georgia,serif;--sans:'Jost',sans-serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--sans);background:var(--ink);color:var(--white);overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:24px 6%;transition:background .5s;}
+    .nav.solid{background:rgba(14,13,11,.94);backdrop-filter:blur(14px);padding:16px 6%;border-bottom:1px solid rgba(184,145,58,.18);}
+    .nav-logo{font-family:var(--serif);font-size:1.1rem;letter-spacing:.06em;cursor:pointer;user-select:none;}
+    .nav-links{list-style:none;display:flex;gap:32px;align-items:center;}
+    .nav-links a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(253,252,250,.6);transition:color .3s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-links .nav-book{color:var(--gold);border:1px solid rgba(184,145,58,.45);padding:9px 22px;}
+    .nav-links .nav-book:hover{background:var(--gold);color:var(--ink);}
+    .page-hero{min-height:38vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 6% 60px;}
+    .page-hero .label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+    .page-hero h1{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:400;}
+    .page-hero p{margin-top:14px;color:var(--fog);font-size:13px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.85;}
+    .section{padding:40px 6% 90px;}
+    .feed{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:26px;}
+    .entry{background:rgba(255,255,255,.03);border:1px solid rgba(184,145,58,.14);padding:34px 36px;position:relative;}
+    .entry-date{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+    .entry h2{font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.7rem);font-weight:400;line-height:1.3;margin-bottom:16px;}
+    .entry p.body{font-size:14px;font-weight:300;line-height:1.95;color:rgba(253,252,250,.72);white-space:pre-wrap;}
+    .entry-mood{display:inline-block;margin-top:18px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-pale);border:1px solid rgba(184,145,58,.28);padding:4px 11px;}
+    .entry-del{position:absolute;top:14px;right:16px;background:rgba(200,70,70,.14);color:#e07070;border:none;font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;cursor:pointer;display:none;}
+    .admin .entry-del{display:block;}
+    .loading{text-align:center;padding:48px;color:var(--fog);font-size:13px;}
+    .spin{width:26px;height:26px;border:2px solid rgba(184,145,58,.18);border-top-color:var(--gold);border-radius:50%;animation:sp .7s linear infinite;margin:0 auto 10px;}
+    @keyframes sp{to{transform:rotate(360deg);}}
+    .empty-msg{text-align:center;padding:60px 20px;color:var(--fog);font-size:13px;line-height:1.9;}
+    .composer{display:none;max-width:760px;margin:0 auto 34px;background:rgba(184,145,58,.06);border:1px solid rgba(184,145,58,.22);padding:30px 32px;}
+    .composer.on{display:block;}
+    .composer h3{font-family:var(--serif);font-size:1.15rem;margin-bottom:20px;}
+    .fg{margin-bottom:14px;}
+    .fg label{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);margin-bottom:6px;}
+    .fg input,.fg textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:11px 13px;font-size:13px;font-family:var(--sans);outline:none;line-height:1.7;}
+    .fg textarea{min-height:150px;resize:vertical;}
+    .fg input:focus,.fg textarea:focus{border-color:rgba(184,145,58,.45);}
+    .btn{display:inline-flex;align-items:center;padding:11px 26px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--sans);cursor:pointer;border:none;transition:all .3s;}
+    .btn-gold{background:var(--gold);color:var(--ink);font-weight:500;}
+    .btn-gold:hover{background:var(--gold-pale);}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.18);color:var(--fog);}
+    .admin-bar{display:none;max-width:760px;margin:0 auto 22px;align-items:center;gap:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+    .admin-bar.on{display:flex;}
+    .admin-bar .out{margin-left:auto;color:var(--fog);cursor:pointer;text-decoration:underline;letter-spacing:.08em;text-transform:none;}
+    .ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center;padding:20px;}
+    .ov.open{display:flex;}
+    .modal{background:#1a1815;border:1px solid rgba(184,145,58,.18);padding:36px;width:100%;max-width:380px;position:relative;}
+    .modal h3{font-family:var(--serif);font-size:1.3rem;margin-bottom:20px;}
+    .mcl{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--fog);font-size:1.3rem;cursor:pointer;}
+    .ferr{color:#e07070;font-size:12px;margin-top:6px;min-height:16px;}
+    .cta-strip{max-width:760px;margin:60px auto 0;text-align:center;border-top:1px solid rgba(255,255,255,.07);padding-top:44px;}
+    .cta-strip p{font-size:13px;font-weight:300;color:var(--fog);line-height:1.9;margin-bottom:22px;}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:15px 36px;background:#25D366;color:#fff;}
+    .btn-wa:hover{background:#1db859;}
+    footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:28px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+    footer .fl{font-family:var(--serif);font-size:.95rem;}
+    footer .fr{font-size:11px;color:var(--fog);}
+    @media(max-width:720px){.nav-links li:not(:last-child){display:none;}.entry{padding:26px 22px;}.composer{padding:24px 20px;}}
+  </style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <!-- Login discreto: 5 cliques rápidos no nome abrem o painel da Helena -->
+  <span class="nav-logo" id="logoSecret">Helena Rise</span>
+  <ul class="nav-links">
+    <li><a href="/">Início</a></li>
+    <li><a href="/reviews.html">Avaliações</a></li>
+    <li><a href="/diario.html" class="active">Diário</a></li>
+    <li><a href="https://wa.me/5527998109991?text=Ol%C3%A1%20Helena%2C%20li%20seu%20di%C3%A1rio%20e%20gostaria%20de%20te%20conhecer." class="nav-book" target="_blank" rel="noopener">Falar comigo</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div>
+    <p class="label">Bastidores</p>
+    <h1>Diário da Helena</h1>
+    <p>Um espaço meu. Escrevo quando dá vontade: o que vivi, o que pensei e o que ainda quero viver.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="admin-bar" id="adminBar">
+    <span>Modo Helena</span>
+    <button class="btn btn-gold" id="newBtn" style="padding:8px 18px;">Novo registro</button>
+    <span class="out" id="logoutBtn">sair</span>
+  </div>
+
+  <div class="composer" id="composer">
+    <h3>Novo registro</h3>
+    <div class="fg"><label>Título</label><input type="text" id="pTitle" maxlength="90" placeholder="ex: Uma terça-feira que não estava no roteiro"/></div>
+    <div class="fg"><label>Texto</label><textarea id="pBody" maxlength="4000" placeholder="Escreva aqui…"></textarea></div>
+    <div class="fg"><label>Humor (opcional)</label><input type="text" id="pMood" maxlength="28" placeholder="ex: leve, provocada, saudade"/></div>
+    <div class="ferr" id="pErr"></div>
+    <button class="btn btn-gold" id="publishBtn">Publicar</button>
+    <button class="btn btn-ghost" id="cancelBtn" style="margin-left:8px;">Cancelar</button>
+  </div>
+
+  <div class="feed" id="feed"><div class="loading"><div class="spin"></div>Carregando…</div></div>
+
+  <div class="cta-strip">
+    <p>Se alguma dessas linhas parece escrita para você, talvez seja mesmo.</p>
+    <a href="https://wa.me/5527998109991?text=Ol%C3%A1%20Helena%2C%20li%20seu%20di%C3%A1rio%20e%20gostaria%20de%20te%20conhecer." class="btn-wa" target="_blank" rel="noopener">Falar comigo</a>
+  </div>
+</section>
+
+<div class="ov" id="authModal">
+  <div class="modal">
+    <button class="mcl" id="closeMod">✕</button>
+    <h3>Acesso restrito</h3>
+    <div class="fg"><label>E-mail</label><input type="email" id="lEmail" placeholder="seu@email.com"/></div>
+    <div class="fg"><label>Senha</label><input type="password" id="lPass" placeholder="••••••••"/></div>
+    <div class="ferr" id="lErr"></div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;" id="loginBtn">Entrar</button>
+  </div>
+</div>
+
+<footer>
+  <span class="fl">Helena Rise</span>
+  <span class="fr">www.helenarise.com.br · © 2026 · Todos os direitos reservados</span>
+</footer>
+
+<script type="module">
+import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import{getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+import{getFirestore,collection,addDoc,doc,deleteDoc,query,orderBy,serverTimestamp,onSnapshot}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+/* ===== [TROCAR] Mesmos dados do Firebase usados em reviews.html ===== */
+const FB={
+  apiKey:"AIzaSyPLACEHOLDER_REPLACE_ME",
+  authDomain:"helenarise.firebaseapp.com",
+  projectId:"helenarise",
+  storageBucket:"helenarise.appspot.com",
+  messagingSenderId:"000000000000",
+  appId:"1:000000000000:web:000000000000000"
+};
+const HELENA_UID='HELENA_UID_PLACEHOLDER';
+/* =================================================================== */
+
+const app=initializeApp(FB);const auth=getAuth(app);const db=getFirestore(app);
+const $=id=>document.getElementById(id);
+let isAdmin=false;
+
+window.addEventListener('scroll',()=>$('nav').classList.toggle('solid',scrollY>50),{passive:true});
+
+/* Login discreto: 5 cliques no logo em até 3 segundos */
+let clicks=0,timer=null;
+$('logoSecret').addEventListener('click',()=>{
+  clicks++;
+  clearTimeout(timer);
+  timer=setTimeout(()=>{clicks=0;},3000);
+  if(clicks>=5){clicks=0;if(isAdmin){return;}$('authModal').classList.add('open');}
+});
+$('closeMod').addEventListener('click',()=>$('authModal').classList.remove('open'));
+$('authModal').addEventListener('click',e=>{if(e.target===e.currentTarget)$('authModal').classList.remove('open');});
+$('loginBtn').addEventListener('click',async()=>{
+  $('lErr').textContent='';
+  try{await signInWithEmailAndPassword(auth,$('lEmail').value.trim(),$('lPass').value);$('authModal').classList.remove('open');}
+  catch{$('lErr').textContent='E-mail ou senha incorretos.';}
+});
+$('logoutBtn').addEventListener('click',()=>signOut(auth));
+
+onAuthStateChanged(auth,u=>{
+  isAdmin=!!u&&u.uid===HELENA_UID;
+  $('adminBar').classList.toggle('on',isAdmin);
+  document.body.classList.toggle('admin',isAdmin);
+  if(!isAdmin)$('composer').classList.remove('on');
+});
+
+$('newBtn').addEventListener('click',()=>$('composer').classList.toggle('on'));
+$('cancelBtn').addEventListener('click',()=>$('composer').classList.remove('on'));
+$('publishBtn').addEventListener('click',async()=>{
+  const title=$('pTitle').value.trim(),body=$('pBody').value.trim(),mood=$('pMood').value.trim();
+  $('pErr').textContent='';
+  if(title.length<3||body.length<10){$('pErr').textContent='Coloque um título e um texto um pouco maior.';return;}
+  await addDoc(collection(db,'diario'),{title,body,mood,createdAt:serverTimestamp()});
+  $('pTitle').value='';$('pBody').value='';$('pMood').value='';
+  $('composer').classList.remove('on');
+});
+
+function esc(s){const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
+function fmt(ts){if(!ts)return'agora';const d=ts.toDate?ts.toDate():new Date(ts);return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});}
+
+onSnapshot(query(collection(db,'diario'),orderBy('createdAt','desc')),snap=>{
+  const feed=$('feed');
+  if(snap.empty){feed.innerHTML='<div class="empty-msg">Ainda não escrevi nada por aqui.<br/>Volte em breve.</div>';return;}
+  feed.innerHTML='';
+  snap.forEach(d=>{
+    const e=d.data();
+    feed.insertAdjacentHTML('beforeend',
+      `<article class="entry">
+        <button class="entry-del" data-id="${d.id}">Excluir</button>
+        <p class="entry-date">${fmt(e.createdAt)}</p>
+        <h2>${esc(e.title)}</h2>
+        <p class="body">${esc(e.body)}</p>
+        ${e.mood?`<span class="entry-mood">${esc(e.mood)}</span>`:''}
+      </article>`);
+  });
+  feed.querySelectorAll('.entry-del').forEach(b=>b.onclick=async()=>{
+    if(confirm('Excluir este registro?'))await deleteDoc(doc(db,'diario',b.dataset.id));
+  });
+});
+</script>
+</body>
+</html>

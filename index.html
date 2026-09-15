@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ==========================================================
+       HELENA RISE — DADOS DO SITE
+       Nome ......... Helena Rise
+       Cidade ....... Vitória / Jardim da Penha
+       Idade ........ 33
+       Valor ........ R$ 600 / hora
+       WhatsApp ..... 5527998109991   (55 + DDD + numero)
+       Fotos ........ todas apontam para placeholder.svg. Troque cada src
+                      pelo arquivo real (marcadores <!-- FOTO-01 --> a <!-- FOTO-17 -->)
+       ========================================================== -->
+
+  <title>Helena Rise — Acompanhante de Luxo em Vitória</title>
+  <meta name="description" content="Helena Rise — acompanhante de luxo em Vitória (ES), Jardim da Penha. Encontros exclusivos, discrição absoluta e agenda limitada. Reservas somente por WhatsApp." />
+  <link rel="canonical" href="https://www.helenarise.com.br/" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Helena Rise" />
+  <meta property="og:title" content="Helena Rise — Acompanhante de Luxo em Vitória" />
+  <meta property="og:description" content="Encontros exclusivos, discrição absoluta e agenda limitada. Reservas somente por WhatsApp." />
+  <meta property="og:url" content="https://www.helenarise.com.br/" />
+  <meta property="og:image" content="https://www.helenarise.com.br/capa.jpg" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230e0d0b'/><text x='50' y='70' font-size='62' font-family='Georgia,serif' fill='%23b8913a' text-anchor='middle'>H</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{--ink:#0e0d0b;--ink-soft:#3a3730;--fog:#9a9590;--parch:#f6f3ee;--gold:#b8913a;--gold-pale:#d4b06a;--white:#fdfcfa;--serif:'Playfair Display',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--ease:cubic-bezier(.4,0,.2,1);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--ink);color:var(--white);overflow-x:hidden;}
+    img{display:block;width:100%;height:100%;object-fit:cover;}
+    a{color:inherit;text-decoration:none;}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:28px 6%;transition:background .5s var(--ease),padding .4s var(--ease);}
+    .nav.solid{background:rgba(14,13,11,.94);backdrop-filter:blur(14px);padding:16px 6%;border-bottom:1px solid rgba(184,145,58,.18);}
+    .nav-logo{font-family:var(--serif);font-size:1.15rem;letter-spacing:.06em;font-weight:400;}
+    .nav-links{list-style:none;display:flex;gap:36px;align-items:center;}
+    .nav-links a{font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(253,252,250,.6);transition:color .3s;}
+    .nav-links a:hover{color:var(--gold-pale);}
+    .nav-links .nav-book{color:var(--gold);border:1px solid rgba(184,145,58,.45);padding:9px 22px;transition:background .3s,color .3s;}
+    .nav-links .nav-book:hover{background:var(--gold);color:var(--ink);}
+    .hero{position:relative;height:100svh;min-height:660px;display:flex;align-items:flex-end;}
+    .hero-media{position:absolute;inset:0;overflow:hidden;}
+    .hero-media img{object-position:center 20%;}
+    .hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,13,11,.18) 0%,rgba(14,13,11,.08) 40%,rgba(14,13,11,.72) 80%,rgba(14,13,11,.95) 100%);}
+    .hero-body{position:relative;z-index:1;padding:0 6% 8vh;max-width:780px;}
+    .hero-tag{font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px;}
+    .hero-tag::before{content:'';display:block;width:32px;height:1px;background:var(--gold);}
+    .hero-title{font-family:var(--serif);font-size:clamp(3rem,7.5vw,6.2rem);font-weight:400;line-height:1.06;letter-spacing:-.01em;margin-bottom:28px;}
+    .hero-title em{font-style:italic;color:var(--gold-pale);}
+    .hero-kicker{font-family:var(--sans);font-size:.82rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(253,252,250,.8);margin-bottom:22px;}
+    .hero-sub{font-size:14px;font-weight:300;color:rgba(253,252,250,.62);line-height:1.85;max-width:480px;margin-bottom:40px;}
+    .hero-ctas{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+    .btn-solid{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:15px 38px;background:var(--gold);color:var(--ink);border:1px solid var(--gold);cursor:pointer;transition:background .3s;display:inline-block;}
+    .btn-solid:hover{background:var(--gold-pale);}
+    .btn-ghost{font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;padding:15px 38px;background:transparent;color:rgba(253,252,250,.75);border:1px solid rgba(253,252,250,.25);cursor:pointer;transition:border-color .3s,color .3s;display:inline-block;}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold-pale);}
+    .marquee-wrap{background:var(--gold);overflow:hidden;}
+    .marquee-track{display:flex;animation:marquee 26s linear infinite;white-space:nowrap;}
+    .marquee-item{display:flex;align-items:center;padding:16px 0;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);flex-shrink:0;}
+    .marquee-item .price-fig{font-family:var(--serif);font-size:1.5rem;font-weight:400;margin:0 4px 0 28px;}
+    .marquee-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:rgba(14,13,11,.35);margin:0 40px;flex-shrink:0;}
+    @keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    @media(prefers-reduced-motion:reduce){.marquee-track{animation:none;}}
+    .sobre{display:grid;grid-template-columns:1fr 1fr;min-height:86vh;}
+    .sobre-visual{position:relative;overflow:hidden;}
+    .sobre-visual img{height:100%;object-position:center top;}
+    .sobre-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 70%,var(--parch) 100%);}
+    .sobre-copy{background:var(--parch);color:var(--ink);padding:80px 9% 80px 7%;display:flex;flex-direction:column;justify-content:center;}
+    .label{font-size:10px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+    .sobre-copy h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:24px;}
+    .sobre-copy p{font-size:14px;font-weight:300;color:var(--ink-soft);line-height:1.9;margin-bottom:16px;}
+    .sobre-address{margin-top:32px;padding-top:28px;border-top:1px solid rgba(14,13,11,.12);font-size:12px;color:var(--fog);line-height:1.7;}
+    .sobre-address strong{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+    .sobre-stats{display:flex;gap:44px;padding-top:36px;border-top:1px solid rgba(14,13,11,.1);flex-wrap:wrap;}
+    .stat{display:flex;flex-direction:column;gap:5px;}
+    .stat-n{font-family:var(--serif);font-size:2.6rem;font-weight:400;line-height:1;color:var(--ink);}
+    .stat-l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);}
+    .galeria-section{background:var(--ink);padding:100px 0 0;}
+    .section-head{text-align:center;padding:0 6%;margin-bottom:64px;}
+    .section-head h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--white);margin-top:12px;}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0;}
+    .grid-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/4;}
+    .grid-item img{transition:transform .8s var(--ease);}
+    .grid-item:hover img{transform:scale(1.06);}
+    .grid-caption{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,13,11,.82) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px 18px;opacity:0;transition:opacity .4s;}
+    .grid-item:hover .grid-caption{opacity:1;}
+    .grid-cap-cat{font-size:9px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+    .grid-cap-title{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--white);}
+    .servico{background:var(--parch);padding:110px 6%;text-align:center;}
+    .servico h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400;color:var(--ink);margin:12px 0 18px;}
+    .servico-desc{font-size:14px;font-weight:300;color:var(--ink-soft);line-height:1.9;max-width:540px;margin:0 auto 60px;}
+    .price-card{display:inline-flex;flex-direction:column;align-items:center;background:var(--ink);padding:56px 72px;max-width:480px;width:100%;position:relative;outline:1px solid rgba(184,145,58,.4);outline-offset:-10px;}
+    .price-card::before{content:'';position:absolute;top:10px;right:10px;bottom:10px;left:10px;border:1px solid rgba(184,145,58,.18);pointer-events:none;}
+    .price-eyebrow{font-size:10px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+    .price-amount{font-family:var(--serif);font-size:clamp(3.4rem,9vw,5.6rem);font-weight:400;line-height:1;color:var(--white);letter-spacing:-.03em;}
+    .price-unit{font-size:13px;font-weight:300;letter-spacing:.15em;text-transform:uppercase;color:var(--fog);margin:10px 0 28px;}
+    .price-includes{list-style:none;display:flex;flex-direction:column;gap:11px;text-align:left;width:100%;border-top:1px solid rgba(253,252,250,.08);padding-top:28px;margin-bottom:36px;}
+    .price-includes li{font-size:13px;font-weight:300;color:rgba(253,252,250,.65);display:flex;align-items:flex-start;gap:12px;}
+    .price-includes li::before{content:'';display:block;flex-shrink:0;width:18px;height:1px;background:var(--gold);margin-top:9px;}
+    .location-note{margin-top:28px;font-size:12px;font-weight:300;color:rgba(253,252,250,.35);font-style:italic;}
+    .faq-section{background:var(--ink);padding:100px 6%;}
+    .faq-wrap{max-width:760px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid rgba(253,252,250,.08);}
+    .faq-q{width:100%;background:none;border:none;color:var(--white);font-family:var(--sans);font-size:14px;font-weight:400;letter-spacing:.04em;text-align:left;padding:22px 34px 22px 0;cursor:pointer;position:relative;}
+    .faq-q::after{content:'+';position:absolute;right:4px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:1.2rem;transition:transform .3s;}
+    .faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+    .faq-item.open .faq-a{max-height:320px;}
+    .faq-a p{font-size:13px;font-weight:300;line-height:1.9;color:rgba(253,252,250,.6);padding:0 30px 24px 0;}
+    .depo-section{background:var(--ink);padding:100px 6%;display:none;}
+    .depo-section .section-head{margin-bottom:56px;}
+    .depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto;}
+    .depo-placeholder{display:block;background:#1a1916;border-radius:6px;overflow:hidden;}
+    .depo-placeholder img{width:100%;height:auto;object-fit:unset;display:block;}
+    .cta-section{position:relative;min-height:560px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .cta-bg{position:absolute;inset:0;}
+    .cta-bg img{object-position:center 30%;}
+    .cta-bg::after{content:'';position:absolute;inset:0;background:rgba(14,13,11,.72);}
+    .cta-body{position:relative;z-index:1;text-align:center;padding:80px 6%;max-width:680px;}
+    .cta-body h2{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;color:var(--white);line-height:1.12;margin:14px 0 20px;}
+    .cta-body h2 em{font-style:italic;color:var(--gold-pale);}
+    .cta-body p{font-size:14px;font-weight:300;color:rgba(253,252,250,.6);line-height:1.9;max-width:440px;margin:0 auto 36px;}
+    .cta-price-line{font-family:var(--serif);font-size:1.5rem;color:var(--gold-pale);margin-bottom:36px;}
+    .btn-wa{display:inline-flex;align-items:center;gap:11px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:17px 42px;background:#25D366;color:#fff;transition:background .3s;}
+    .btn-wa:hover{background:#1db859;}
+    footer{background:var(--ink);border-top:1px solid rgba(253,252,250,.06);padding:44px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+    .footer-logo{font-family:var(--serif);font-size:1.05rem;letter-spacing:.06em;color:var(--white);}
+    .footer-right{font-size:11px;font-weight:300;letter-spacing:.1em;color:var(--fog);text-align:right;line-height:1.8;}
+    .wa-float{position:fixed;bottom:32px;right:32px;z-index:99;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.38);transition:transform .3s,box-shadow .3s;}
+    .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55);}
+    .wa-float:hover .wa-tip{opacity:1;pointer-events:auto;}
+    .wa-tip{position:absolute;right:68px;top:50%;transform:translateY(-50%);background:rgba(14,13,11,.9);color:var(--white);font-size:11px;white-space:nowrap;padding:7px 14px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .25s;}
+    .wa-tip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:rgba(14,13,11,.9);}
+    #lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9999;align-items:center;justify-content:center;}
+    #lb.open{display:flex;}
+    #lb-img{max-height:90vh;max-width:90vw;object-fit:contain;border-radius:4px;}
+    #lb-close{position:absolute;top:20px;right:28px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;z-index:10000;}
+    #lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:3rem;cursor:pointer;padding:8px 18px;user-select:none;background:rgba(0,0,0,.3);border-radius:4px;}
+    #lb-prev{left:12px;}#lb-next{right:12px;}
+    #lb-prev:hover,#lb-next:hover{background:rgba(184,145,58,.6);}
+    .grid-item img{pointer-events:none;}
+    @media(max-width:900px){.sobre{grid-template-columns:1fr;}.sobre-visual{min-height:420px;}.sobre-visual::after{background:none;}.sobre-copy{padding:60px 7%;}.sobre-stats{gap:28px;}.grid{grid-template-columns:repeat(2,1fr);}.depo-grid{grid-template-columns:1fr 1fr;}.price-card{padding:44px 36px;}}
+    @media(max-width:600px){.nav-links{display:none;}.grid{grid-template-columns:1fr;}.hero-ctas{flex-direction:column;align-items:stretch;}.hero-ctas a{text-align:center;}.wa-float{bottom:24px;right:24px;width:52px;height:52px;}footer{flex-direction:column;}.footer-right{text-align:center;}.depo-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">Helena Rise</a>
+    <ul class="nav-links">
+      <li><a href="/">Início</a></li>
+      <li><a href="/reviews.html">Avaliações</a></li>
+      <li><a href="/diario.html">Diário</a></li>
+      <li><a href="https://wa.me/5527998109991?text=Ol%C3%A1%20Helena%2C%20cheguei%20pelo%20seu%20site.%20Gostaria%20de%20saber%20sua%20disponibilidade." class="nav-book" target="_blank" rel="noopener">Falar comigo</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-media">
+      <!-- FOTO-01 · capa (hero) -->
+      <img src="placeholder.svg" alt="Helena Rise — acompanhante de luxo em Vitória" id="heroImg" fetchpriority="high" />
+    </div>
+    <div class="hero-body">
+      <p class="hero-tag">Acompanhante de luxo · Exclusiva</p>
+      <h1 class="hero-title">Poucos encontros.<br /><em>Presença inesquecível.</em></h1>
+      <p class="hero-kicker">Agenda quase completa desta semana.</p>
+      <p class="hero-sub">33 anos • Vitória • Discrição absoluta • Atendimento somente com hora marcada.</p>
+      <div class="hero-ctas">
+        <a href="#contato" class="btn-solid">Falar no WhatsApp</a>
+        <a href="#portfolio" class="btn-ghost">Ver minhas fotos</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Disponível hoje para encontros discretos<span class="price-fig">R$600</span>/ hora<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Local exclusivo &amp; 33 anos<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Para homens exigentes e generosos<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Agenda muito limitada<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Disponível hoje para encontros discretos<span class="price-fig">R$600</span>/ hora<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Local exclusivo &amp; 33 anos<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Para homens exigentes e generosos<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Agenda muito limitada<span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <section class="sobre" id="sobre">
+    <div class="sobre-visual">
+      <!-- FOTO-02 · retrato da seção "Sobre" -->
+      <img src="placeholder.svg" alt="Helena Rise" loading="lazy" />
+    </div>
+    <div class="sobre-copy">
+      <p class="label">Sobre mim</p>
+      <h2>Eu sou<br />Helena Rise.</h2>
+      <p>Tenho <strong>33 anos</strong> e vivo em Vitória. Sou do tipo que prefere qualidade a quantidade: recebo poucas pessoas, com hora marcada, em um ambiente reservado e impecável.</p>
+      <p>Sou leve, bem-humorada e curiosa. Gosto de conversa boa, de uma taça de vinho sem pressa e de perceber o que a outra pessoa gosta antes mesmo dela dizer.</p>
+      <p>Discrição, para mim, não é detalhe: é a base de tudo. O que acontece entre nós não sai daqui, e sua privacidade é tratada com o mesmo cuidado que eu espero para a minha.</p>
+      <p><strong>Quem me encontra uma vez, dificilmente encontra só uma vez.</strong></p>
+      <p><em>Pronto para viver algo elegante, intenso e inesquecível?</em></p>
+      <div class="sobre-stats">
+        <div class="stat"><span class="stat-n">R$600</span><span class="stat-l">/ hora</span></div>
+        <div class="stat"><span class="stat-n">33</span><span class="stat-l">Anos</span></div>
+        <div class="stat"><span class="stat-n">VIP</span><span class="stat-l">Atendimento exclusivo</span></div>
+      </div>
+      <div class="sobre-address">
+        <strong>Vitória · Jardim da Penha</strong>
+        Local próprio, discreto e de fácil acesso no Jardim da Penha.<br />Endereço enviado somente após a confirmação.
+      </div>
+    </div>
+  </section>
+
+  <section class="galeria-section" id="portfolio">
+    <div class="section-head"><p class="label">Portfólio</p><h2>Fotos</h2></div>
+    <div class="grid">
+      <!-- FOTO-03 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 01" /><div class="grid-caption"><p class="grid-cap-cat">Exclusivo</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-04 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 02" /><div class="grid-caption"><p class="grid-cap-cat">Editorial</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-05 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 03" /><div class="grid-caption"><p class="grid-cap-cat">Retrato</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-06 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 04" /><div class="grid-caption"><p class="grid-cap-cat">Exclusivo</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-07 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 05" /><div class="grid-caption"><p class="grid-cap-cat">Estúdio</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-08 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 06" /><div class="grid-caption"><p class="grid-cap-cat">Retrato</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-09 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 07" /><div class="grid-caption"><p class="grid-cap-cat">Editorial</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-10 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 08" /><div class="grid-caption"><p class="grid-cap-cat">Estúdio</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-11 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 09" /><div class="grid-caption"><p class="grid-cap-cat">Fitness</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-12 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 10" /><div class="grid-caption"><p class="grid-cap-cat">Retrato</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-13 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 11" /><div class="grid-caption"><p class="grid-cap-cat">Estúdio</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-14 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 12" /><div class="grid-caption"><p class="grid-cap-cat">Moda</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-15 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 13" /><div class="grid-caption"><p class="grid-cap-cat">Retrato</p><p class="grid-cap-title">Helena</p></div></div>
+      <!-- FOTO-16 -->
+      <div class="grid-item" onclick="lbOpen(this)"><img loading="lazy" src="placeholder.svg" alt="Helena Rise — ensaio 14" /><div class="grid-caption"><p class="grid-cap-cat">Estúdio</p><p class="grid-cap-title">Helena</p></div></div>
+    </div>
+  </section>
+
+  <section class="servico" id="servico">
+    <p class="label">Experiência premium</p>
+    <h2>Encontros exclusivos,<br />somente com hora marcada.</h2>
+    <p class="servico-desc">Imagine um momento em que o tempo para. Uma experiência elegante, sensual e sem pressa, com cada detalhe pensado para você.</p>
+    <div style="display:flex;justify-content:center;">
+      <div class="price-card">
+        <p class="price-eyebrow">Atendimento VIP</p>
+        <p class="price-amount">R$600</p>
+        <p class="price-unit">/ hora</p>
+        <ul class="price-includes">
+          <li>Encontro exclusivo em local próprio e discreto</li>
+          <li>Discrição absoluta garantida</li>
+          <li>Momentos à sua maneira, sem pressa e sem roteiro</li>
+          <li>Somente para homens educados, sérios e generosos</li>
+          <li>Ducha, lingerie fina e bom humor inclusos</li>
+          <li>Reserva somente pelo WhatsApp</li>
+        </ul>
+        <a href="https://wa.me/5527998109991?text=Ol%C3%A1%20Helena%2C%20cheguei%20pelo%20seu%20site.%20Gostaria%20de%20reservar%20um%20hor%C3%A1rio.%20Qual%20sua%20disponibilidade%3F" class="btn-solid" style="width:100%;text-align:center;" target="_blank" rel="noopener">Reservar pelo WhatsApp</a>
+        <p class="location-note">Agenda limitada. Confirmo apenas os horários que consigo atender bem.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="section-head"><p class="label">Antes de me chamar</p><h2>Perguntas frequentes</h2></div>
+    <div class="faq-wrap">
+      <div class="faq-item"><button class="faq-q">Como faço para reservar um horário?</button><div class="faq-a"><p>Somente pelo WhatsApp. Me mande uma mensagem dizendo o dia e o horário que você prefere e eu confirmo a disponibilidade. Não atendo sem agendamento prévio.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Você atende em que região?</button><div class="faq-a"><p>Recebo em local próprio, discreto e de fácil acesso no Jardim da Penha, em Vitória. O endereço é enviado somente depois que o horário está confirmado.</p></div></div>
+      <div class="faq-item"><button class="faq-q">As fotos são reais?</button><div class="faq-a"><p>Sim, todas as fotos do portfólio são minhas e atuais. Você encontra exatamente a pessoa das fotos.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Como funciona a discrição?</button><div class="faq-a"><p>Sua identidade nunca é comentada com ninguém, não guardo conversas e não publico nada que possa identificar quem me encontra. Espero a mesma discrição de volta.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Quais são as formas de pagamento?</button><div class="faq-a"><p>Combinamos no momento da reserva, pelo WhatsApp.</p></div></div>
+    </div>
+  </section>
+
+  <!-- Seção de depoimentos em imagem — oculta por padrão (display:none no CSS).
+       Para ativar: troque .depo-section{display:none} por display:block no CSS. -->
+  <section class="depo-section" id="depoimentos">
+    <div class="section-head"><p class="label">Clientes</p><h2>Experiências vividas</h2></div>
+    <div class="depo-grid">
+      <div class="depo-placeholder"><img loading="lazy" src="placeholder.svg" alt="" /></div>
+      <div class="depo-placeholder"><img loading="lazy" src="placeholder.svg" alt="" /></div>
+      <div class="depo-placeholder"><img loading="lazy" src="placeholder.svg" alt="" /></div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contato">
+    <!-- FOTO-17 · fundo do bloco final -->
+    <div class="cta-bg"><img loading="lazy" src="placeholder.svg" alt="" aria-hidden="true" /></div>
+    <div class="cta-body">
+      <p class="label" style="color:var(--gold-pale);">Helena Rise</p>
+      <h2>Pronto para<br /><em>me conhecer?</em></h2>
+      <p>Me chame no WhatsApp e diga o dia que você prefere. Respondo pessoalmente e confirmo na hora se tenho horário.</p>
+      <p class="cta-price-line">R$ 600 / hora</p>
+      <a href="https://wa.me/5527998109991?text=Ol%C3%A1%20Helena%2C%20cheguei%20pelo%20seu%20site.%20Gostaria%20de%20reservar%20um%20hor%C3%A1rio.%20Qual%20sua%20disponibilidade%3F" class="btn-wa" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L0 24l6.335-1.508A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.787 9.787 0 01-4.99-1.371l-.358-.213-3.761.896.957-3.667-.234-.374A9.774 9.774 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Falar comigo
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Helena Rise</span>
+    <div class="footer-right">
+      <div>www.helenarise.com.br</div>
+      <div>© 2026 · Todos os direitos reservados · Conteúdo para maiores de 18 anos</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5527998109991?text=Ol%C3%A1%20Helena%2C%20cheguei%20pelo%20seu%20site.%20Gostaria%20de%20saber%20sua%20disponibilidade." class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L0 24l6.335-1.508A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.787 9.787 0 01-4.99-1.371l-.358-.213-3.761.896.957-3.667-.234-.374A9.774 9.774 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    <span class="wa-tip">Falar no WhatsApp</span>
+  </a>
+
+  <div id="lb" onclick="if(event.target===this)lbClose()">
+    <span id="lb-close" onclick="lbClose()">&#10005;</span>
+    <span id="lb-prev" onclick="lbNav(-1)">&#8249;</span>
+    <img id="lb-img" src="" alt="" />
+    <span id="lb-next" onclick="lbNav(1)">&#8250;</span>
+  </div>
+
+  <script>
+    var nav=document.getElementById('nav');
+    window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>50);},{passive:true});
+
+    var heroImg=document.getElementById('heroImg');
+    window.addEventListener('scroll',function(){var y=window.scrollY;if(y<window.innerHeight){heroImg.style.transform='translateY('+y*0.28+'px)';}},{passive:true});
+
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';io.unobserve(x.target);}});},{threshold:.08});
+    document.querySelectorAll('.grid-item,.depo-placeholder,.stat,.price-card').forEach(function(el){el.style.opacity='0';el.style.transform='translateY(28px)';el.style.transition='opacity .7s ease,transform .7s ease';io.observe(el);});
+
+    document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){b.parentElement.classList.toggle('open');});});
+
+    var _lbI=[],_lbN=0;
+    function lbOpen(el){
+      _lbI=[].slice.call(document.querySelectorAll('.grid-item img')).map(function(i){return i.src;});
+      _lbN=_lbI.indexOf(el.querySelector('img').src);
+      document.getElementById('lb-img').src=_lbI[_lbN];
+      document.getElementById('lb').classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    function lbClose(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+    function lbNav(d){_lbN=(_lbN+d+_lbI.length)%_lbI.length;document.getElementById('lb-img').src=_lbI[_lbN];}
+    document.addEventListener('keydown',function(e){
+      if(!document.getElementById('lb').classList.contains('open'))return;
+      if(e.key==='ArrowLeft')lbNav(-1);else if(e.key==='ArrowRight')lbNav(1);else if(e.key==='Escape')lbClose();
+    });
+  </script>
+
+  <!-- ===== PIXEL / TRACKING — COLAR OS IDS DA CAMPANHA DA HELENA AQUI =====
+  <script type="text/javascript" src="https://fl-cdn2.contentabc.com/delivery/idsync/idsync.min.js"></script>
+  <script>
+    (function(){
+      var MEMBER_ID = 'SEU_MEMBER_ID';
+      var TRACKER_PAGEVIEW = 'ID_DO_TRACKER_PAGEVIEW';
+      var TRACKER_WHATSAPP = 'ID_DO_TRACKER_WHATSAPP';
+      function init(){
+        if(window.idsync && typeof window.idsync.config==='function'){try{window.idsync.config(00000).fp_get().sync();}catch(e){}}
+        var img=document.createElement('img');img.width=1;img.height=1;img.style.display='none';
+        img.src='https://ads.trafficjunky.net/ct?a='+TRACKER_PAGEVIEW+'&member_id='+MEMBER_ID+'&cb='+Date.now()+'&ctd=pageview';
+        document.body.appendChild(img);
+        document.querySelectorAll('a[href*="wa.me"]').forEach(function(el){
+          el.addEventListener('click',function(){
+            var i=document.createElement('img');i.width=1;i.height=1;i.style.display='none';
+            i.src='https://ads.trafficjunky.net/ct?a='+TRACKER_WHATSAPP+'&member_id='+MEMBER_ID+'&cb='+Date.now()+'&ctd=WhatsApp_Click';
+            document.body.appendChild(i);
+          });
+        });
+      }
+      if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+    })();
+  </script>
+  ===== FIM DO BLOCO DE TRACKING ===== -->
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Helena Rise",
+    "url":"https://www.helenarise.com.br/",
+    "image":"https://www.helenarise.com.br/",
+    "address":{"@type":"PostalAddress","addressLocality":"Vitória","addressRegion":"ES","addressCountry":"BR"},
+    "sameAs":["https://helenarise.com"]
+  }
+  </script>
+</body>
+</html>
