@@ -165,6 +165,20 @@
     .pe-valor{font-family:var(--serif);font-size:2.1rem;font-weight:400;line-height:1;color:var(--white);margin-bottom:14px;letter-spacing:-.02em;}
     .pe-card p.pe-nota{font-size:12.5px;font-weight:300;line-height:1.8;color:rgba(253,252,250,.6);}
     @media(max-width:700px){.precos-extra{grid-template-columns:1fr;}.pe-card{padding:26px 24px;}}
+  
+    .ficha-section{background:var(--ink);padding:100px 6%;border-top:1px solid rgba(253,252,250,.06);}
+    .ficha-wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:start;}
+    .ficha-bloco h3{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid rgba(184,145,58,.25);}
+    .ficha-bloco + .ficha-bloco{margin-top:48px;}
+    .ficha-lista{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:18px 26px;}
+    .ficha-lista.uma{grid-template-columns:1fr;}
+    .ficha-lista li{display:flex;align-items:flex-start;gap:13px;font-size:13.5px;font-weight:300;line-height:1.6;color:rgba(253,252,250,.72);}
+    .ficha-lista svg{flex-shrink:0;width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-top:1px;}
+    .ficha-lista b{display:block;font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(253,252,250,.4);margin-bottom:3px;}
+    .ficha-lista .sim{color:var(--gold-pale);}
+    .ficha-nota{margin-top:26px;font-size:12px;font-weight:300;font-style:italic;line-height:1.8;color:rgba(253,252,250,.38);}
+    @media(max-width:900px){.ficha-wrap{grid-template-columns:1fr;gap:44px;}.ficha-section{padding:72px 6%;}}
+    @media(max-width:520px){.ficha-lista{grid-template-columns:1fr;gap:15px;}}
   </style>
 </head>
 <body>
@@ -173,6 +187,7 @@
     <a href="/" class="nav-logo">Helena Rise</a>
     <ul class="nav-links">
       <li><a href="/">Início</a></li>
+      <li><a href="#ficha">Ficha</a></li>
       <li><a href="/reviews.html">Avaliações</a></li>
       <li><a href="/diario.html">Diário</a></li>
       <li><a href="https://wa.me/5527998109991?text=*Oi%20Helena%2C%20tudo%20bem%3F*%20%F0%9F%A5%82%0AAdorei%20conhecer%20seu%20site%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20hor%C3%A1rios%20e%20valores." class="nav-book" target="_blank" rel="noopener">Falar comigo</a></li>
@@ -232,6 +247,29 @@
       <div class="sobre-address">
         <strong>Vitória · Jardim da Penha</strong>
         Local próprio, discreto e de fácil acesso em Jardim da Penha - Vitória - ES.<br />Endereço enviado somente por WhatsApp.
+      </div>
+    </div>
+  </section>
+
+  <section class="ficha-section" id="ficha">
+    <div class="section-head"><p class="label">Sobre mim</p><h2>Ficha completa</h2></div>
+    <div class="ficha-wrap">
+      <div>
+        <div class="ficha-bloco">
+          <h3>Características físicas</h3>
+          <ul class="ficha-lista"><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 4h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M4 8h14M8 2v4M14 2v4"/></svg><span><b>Idade</b>33 anos</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2v18M6 6l5-4 5 4M6 16l5 4 5-4"/></svg><span><b>Altura</b>1,72 m</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M4 8h14l1 11H3L4 8z"/><path d="M8 8a3 3 0 0 1 6 0"/></svg><span><b>Peso</b>65 kg</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M7 3c2.5 0 4 1.7 4 4.5 0 3-1 4-1 6.5 0 2.2-1.2 3.5-3 3.5S4 16.2 4 14c0-4 3-4.5 3-11z"/><circle cx="14.5" cy="6" r="1"/><circle cx="16" cy="9" r="1"/></svg><span><b>Pé</b>38</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M2 11s3.5-5 9-5 9 5 9 5-3.5 5-9 5-9-5-9-5z"/><circle cx="11" cy="11" r="2.2"/></svg><span><b>Olhos</b>Verdes</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 3l1.9 4.6L18 9l-4.6 1.9L11 16l-1.9-5.1L4 9l5.1-1.4L11 3z"/></svg><span><b>Cabelo</b>Loira natural</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 17c0-6 2.7-9 6-9s6 3 6 9"/><path d="M8 17c0-4 1.3-6 3-6s3 2 3 6"/></svg><span><b>Comprimento</b>Longo</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="7" r="3.2"/><path d="M4.5 18c0-3.6 2.9-5.5 6.5-5.5s6.5 1.9 6.5 5.5"/></svg><span><b>Gênero</b>Mulher cis</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M6.5 6.5l9 9"/></svg><span><b>Silicone</b>Não</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M6.5 6.5l9 9"/></svg><span><b>Tatuagens</b>Não</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M6.5 6.5l9 9"/></svg><span><b>Piercings</b>Não</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M3 11h16M11 3c2.2 2.4 3.2 5.1 3.2 8s-1 5.6-3.2 8c-2.2-2.4-3.2-5.1-3.2-8s1-5.6 3.2-8z"/></svg><span><b>Idiomas</b>Português e inglês</span></li></ul>
+        </div>
+        <div class="ficha-bloco">
+          <h3>Como eu atendo</h3>
+          <ul class="ficha-lista"><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 3l6.5 2.6v5.2c0 4-2.7 7.1-6.5 8.2-3.8-1.1-6.5-4.2-6.5-8.2V5.6L11 3z"/><path d="M8.2 11.2l2 2 3.6-3.9"/></svg><span><b>Sexo</b>Sempre com preservativo</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 3.5s5.2 5.3 5.2 9A5.2 5.2 0 0 1 11 17.7 5.2 5.2 0 0 1 5.8 12.5c0-3.7 5.2-9 5.2-9z"/></svg><span><b>Oral sem camisinha</b>Depende da higiene</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 18S3.8 13.6 3.8 8.6A3.8 3.8 0 0 1 11 6.9a3.8 3.8 0 0 1 7.2 1.7c0 5-7.2 9.4-7.2 9.4z"/></svg><span><b>Beijo na boca</b>Depende da higiene</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="7.5" cy="7" r="2.6"/><circle cx="15" cy="7" r="2.6"/><path d="M2.8 17c0-2.9 2.1-4.6 4.7-4.6s4.7 1.7 4.7 4.6"/><path d="M11.8 12.8c.9-.3 2-.4 3.2-.4 2.6 0 4.7 1.7 4.7 4.6"/></svg><span><b>Atendo casais</b><span class="sim">Sim</span></span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M4 8h13l-3-3M18 14H5l3 3"/></svg><span><b>Inversão de papéis</b><span class="sim">Sim</span></span></li></ul>
+        </div>
+      </div>
+      <div>
+        <div class="ficha-bloco">
+          <h3>Atendimento</h3>
+          <ul class="ficha-lista uma"><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 19s6-5.3 6-9.6A6 6 0 0 0 5 9.4C5 13.7 11 19 11 19z"/><circle cx="11" cy="9.3" r="2.2"/></svg><span><b>Cidades que atendo</b>Vitória, Vila Velha e Serra</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M11 6.3V11l3.2 2"/></svg><span><b>Horário no meu local</b>10h às 22h</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M11 6.3V11l3.2 2"/></svg><span><b>Outros horários</b>Consultar disponibilidade</span></li><li><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M5 4h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M4 8h14M8 2v4M14 2v4M7.5 12h2M12.5 12h2M7.5 15h2"/></svg><span><b>Dias</b>De segunda a domingo</span></li></ul>
+          <p class="ficha-nota">Recebo em local próprio no Jardim da Penha, somente com hora marcada. Fora do meu local, atendo apenas em hotéis, com taxa extra de R$ 100/h + locomoção.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -482,10 +520,83 @@
     "@id": "https://www.helenarise.com.br/#primaryimage"
    },
    "url": "https://www.helenarise.com.br/",
-   "knowsLanguage": "pt-BR",
+   "knowsLanguage": [
+    {
+     "@type": "Language",
+     "name": "Português",
+     "alternateName": "pt-BR"
+    },
+    {
+     "@type": "Language",
+     "name": "Inglês",
+     "alternateName": "en"
+    }
+   ],
    "worksFor": {
     "@id": "https://www.helenarise.com.br/#business"
-   }
+   },
+   "height": {
+    "@type": "QuantitativeValue",
+    "value": 172,
+    "unitCode": "CMT"
+   },
+   "weight": {
+    "@type": "QuantitativeValue",
+    "value": 65,
+    "unitCode": "KGM"
+   },
+   "additionalProperty": [
+    {
+     "@type": "PropertyValue",
+     "name": "Idade",
+     "value": "33 anos"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Altura",
+     "value": "1,72 m"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Peso",
+     "value": "65 kg"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Olhos",
+     "value": "Verdes"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Cabelo",
+     "value": "Loira natural, longo"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Gênero",
+     "value": "Mulher cis"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Pé",
+     "value": "38"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Silicone",
+     "value": "Não"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Tatuagens",
+     "value": "Não"
+    },
+    {
+     "@type": "PropertyValue",
+     "name": "Piercings",
+     "value": "Não"
+    }
+   ]
   },
   {
    "@type": "LocalBusiness",
@@ -629,6 +740,22 @@
       "@type": "City",
       "name": "Vitória"
      }
+    }
+   ],
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+     ],
+     "opens": "10:00",
+     "closes": "22:00"
     }
    ]
   },
