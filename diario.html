@@ -6,6 +6,16 @@
   <title>Diário — Helena Rise</title>
   <meta name="description" content="O diário da Helena Rise: bastidores, humores e agenda. Escrito por ela, sem filtro."/>
   <link rel="canonical" href="https://www.helenarise.com.br/diario.html"/>
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Helena Rise" />
+  <meta property="og:title" content="Diário — Helena Rise" />
+  <meta property="og:description" content="O diário da Helena Rise: bastidores, humores e agenda. Escrito por ela, sem filtro." />
+  <meta property="og:url" content="https://www.helenarise.com.br/diario.html" />
+  <meta property="og:image" content="https://www.helenarise.com.br/helena-rise-acompanhante-jardim-da-penha-com-local.webp" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0e0d0b" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230e0d0b'/><text x='50' y='70' font-size='62' font-family='Georgia,serif' fill='%23b8913a' text-anchor='middle'>H</text></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -212,5 +222,41 @@ onSnapshot(query(collection(db,'diario'),orderBy('createdAt','desc')),snap=>{
   });
 });
 </script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Início",
+     "item": "https://www.helenarise.com.br/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Diário",
+     "item": "https://www.helenarise.com.br/diario.html"
+    }
+   ]
+  },
+  {
+   "@type": "Blog",
+   "url": "https://www.helenarise.com.br/diario.html",
+   "name": "Diário — Helena Rise",
+   "inLanguage": "pt-BR",
+   "author": {
+    "@id": "https://www.helenarise.com.br/#person"
+   },
+   "isPartOf": {
+    "@id": "https://www.helenarise.com.br/#website"
+   }
+  }
+ ]
+}
+  </script>
 </body>
 </html>

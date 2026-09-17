@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# bots de IA generativa e scrapers de conteudo
+User-agent: GPTBot
+Allow: /
+
 Sitemap: https://www.helenarise.com.br/sitemap.xml
