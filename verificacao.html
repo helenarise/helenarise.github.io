@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Seleção — Helena Rise</title>
+  <meta name="description" content="Processo de seleção para agendamento com Helena Rise. Poucas perguntas rápidas e sua solicitação chega pronta no WhatsApp." />
+  <link rel="canonical" href="https://www.helenarise.com.br/verificacao.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="google-site-verification" content="fB3CbbRSUCAT05WmDHgr-2jw1xBDq-vk3UfcVYRXC1c" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Helena Rise" />
+  <meta property="og:title" content="Seleção — Helena Rise" />
+  <meta property="og:description" content="Poucas perguntas rápidas e sua solicitação de horário chega pronta no WhatsApp." />
+  <meta property="og:url" content="https://www.helenarise.com.br/verificacao.html" />
+  <meta property="og:image" content="https://www.helenarise.com.br/helena-rise-acompanhante-jardim-da-penha-com-local.webp" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0e0d0b" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Jost:wght@300;400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Jost:wght@300;400;500&display=swap" media="print" onload="this.media='all';this.onload=null;" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Jost:wght@300;400;500&display=swap" /></noscript>
+
+  <style>
+    :root{
+      --ink:#0e0d0b; --fog:#9a9590; --parch:#f6f3ee; --gold:#b8913a;
+      --gold-pale:#d4b06a; --white:#fdfcfa;
+      --serif:'Playfair Display',Georgia,serif; --sans:'Jost','Helvetica Neue',Arial,sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{-webkit-text-size-adjust:100%;}
+    body{
+      font-family:var(--sans);background:var(--ink);color:var(--white);
+      min-height:100svh;display:flex;flex-direction:column;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .topo{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:22px 6%;border-bottom:1px solid rgba(253,252,250,.07);
+    }
+    .topo a.logo{
+      font-family:var(--serif);font-size:1.15rem;color:var(--white);
+      text-decoration:none;letter-spacing:.02em;
+    }
+    .topo a.sair{
+      font-size:10px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;
+      color:rgba(253,252,250,.45);text-decoration:none;transition:color .3s;
+    }
+    .topo a.sair:hover{color:var(--gold-pale);}
+
+    .barra{height:2px;background:rgba(253,252,250,.07);}
+    .barra i{display:block;height:100%;width:0;background:var(--gold);transition:width .45s cubic-bezier(.4,0,.2,1);}
+
+    main{flex:1;display:flex;align-items:center;justify-content:center;padding:44px 6% 60px;}
+    .palco{width:100%;max-width:560px;}
+
+    .passo{display:none;animation:entra .45s cubic-bezier(.2,.7,.3,1);}
+    .passo.ativo{display:block;}
+    @keyframes entra{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+    @media(prefers-reduced-motion:reduce){.passo{animation:none;}.barra i{transition:none;}}
+
+    .conta{
+      font-size:10px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:16px;
+    }
+    h1,h2.pergunta{
+      font-family:var(--serif);font-weight:400;
+      font-size:clamp(1.65rem,4.6vw,2.4rem);line-height:1.22;
+      color:var(--white);margin-bottom:12px;letter-spacing:-.01em;
+    }
+    .ajuda{
+      font-size:13.5px;font-weight:300;line-height:1.75;
+      color:rgba(253,252,250,.5);margin-bottom:30px;
+    }
+
+    .opcoes{display:flex;flex-direction:column;gap:11px;}
+    .opcao{
+      width:100%;text-align:left;font-family:var(--sans);
+      font-size:14.5px;font-weight:300;color:rgba(253,252,250,.85);
+      background:transparent;border:1px solid rgba(253,252,250,.16);
+      padding:17px 20px;cursor:pointer;
+      transition:border-color .25s,background .25s,color .25s;
+      display:flex;align-items:center;gap:13px;
+    }
+    .opcao:hover,.opcao:focus-visible{
+      border-color:var(--gold);color:var(--white);
+      background:rgba(184,145,58,.07);outline:none;
+    }
+    .opcao.marcada{border-color:var(--gold);background:rgba(184,145,58,.12);color:var(--white);}
+    .opcao .bolinha{
+      flex-shrink:0;width:15px;height:15px;border-radius:50%;
+      border:1px solid rgba(253,252,250,.3);position:relative;transition:border-color .25s;
+    }
+    .opcao.marcada .bolinha{border-color:var(--gold);}
+    .opcao.marcada .bolinha::after{
+      content:'';position:absolute;inset:3px;border-radius:50%;background:var(--gold);
+    }
+
+    .campo{
+      width:100%;font-family:var(--sans);font-size:16px;font-weight:300;
+      color:var(--white);background:transparent;border:none;
+      border-bottom:1px solid rgba(253,252,250,.22);
+      padding:13px 2px;transition:border-color .3s;
+    }
+    .campo::placeholder{color:rgba(253,252,250,.28);}
+    .campo:focus{outline:none;border-bottom-color:var(--gold);}
+    .campo[type=date]{color-scheme:dark;}
+    .dupla{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+    @media(max-width:460px){.dupla{grid-template-columns:1fr;gap:22px;}}
+    .rotulo{
+      display:block;font-size:9.5px;font-weight:500;letter-spacing:.2em;
+      text-transform:uppercase;color:rgba(253,252,250,.4);margin-bottom:7px;
+    }
+
+    .erro{
+      font-size:12.5px;font-weight:300;color:#e0a0a0;
+      margin-top:13px;min-height:17px;
+    }
+
+    .acoes{display:flex;align-items:center;gap:16px;margin-top:32px;}
+    .btn{
+      font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.2em;
+      text-transform:uppercase;padding:15px 38px;cursor:pointer;
+      border:1px solid var(--gold);background:var(--gold);color:var(--ink);
+      transition:background .3s;display:inline-block;text-decoration:none;
+    }
+    .btn:hover{background:var(--gold-pale);border-color:var(--gold-pale);}
+    .btn.fantasma{
+      background:transparent;color:rgba(253,252,250,.6);
+      border-color:rgba(253,252,250,.2);padding:15px 26px;
+    }
+    .btn.fantasma:hover{border-color:var(--gold);color:var(--gold-pale);background:transparent;}
+    .btn:focus-visible{outline:2px solid var(--gold-pale);outline-offset:3px;}
+
+    .aviso{
+      display:flex;gap:14px;align-items:flex-start;
+      background:rgba(184,145,58,.07);border:1px solid rgba(184,145,58,.3);
+      border-left:3px solid var(--gold);padding:20px 22px;margin-bottom:26px;
+    }
+    .aviso svg{
+      flex-shrink:0;width:19px;height:19px;stroke:var(--gold);fill:none;
+      stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-top:2px;
+    }
+    .aviso p{font-size:13px;font-weight:300;line-height:1.75;color:rgba(253,252,250,.75);}
+    .aviso strong{font-weight:500;color:var(--gold-pale);}
+
+    .resumo{
+      border-top:1px solid rgba(253,252,250,.1);
+      border-bottom:1px solid rgba(253,252,250,.1);
+      padding:22px 0;margin-bottom:28px;
+      display:flex;flex-direction:column;gap:13px;
+    }
+    .resumo div{display:flex;justify-content:space-between;gap:20px;font-size:13.5px;}
+    .resumo dt{
+      font-size:9.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+      color:rgba(253,252,250,.4);padding-top:3px;flex-shrink:0;
+    }
+    .resumo dd{font-weight:300;color:rgba(253,252,250,.85);text-align:right;}
+
+    footer{
+      padding:26px 6%;border-top:1px solid rgba(253,252,250,.07);
+      font-size:11px;font-weight:300;color:rgba(253,252,250,.3);text-align:center;
+    }
+    footer a{color:rgba(253,252,250,.45);text-decoration:none;}
+    footer a:hover{color:var(--gold-pale);}
+  </style>
+</head>
+<body>
+
+  <header class="topo">
+    <a href="/" class="logo">Helena Rise</a>
+    <a href="/" class="sair">Voltar ao site</a>
+  </header>
+  <div class="barra"><i id="barra"></i></div>
+
+  <main>
+    <div class="palco">
+
+      <!-- 0 · abertura -->
+      <section class="passo ativo" data-passo="0">
+        <p class="conta">Seleção</p>
+        <h1>Antes de marcarmos,<br />preciso te conhecer um pouco.</h1>
+        <p class="ajuda">
+          São seis perguntas rápidas — menos de um minuto. No fim, sua solicitação chega
+          pronta no meu WhatsApp e eu respondo confirmando a disponibilidade.
+          Recebo somente com hora marcada e atendo um número limitado de pessoas por semana.
+        </p>
+        <div class="acoes">
+          <button class="btn" data-acao="proximo">Começar</button>
+        </div>
+      </section>
+
+      <!-- 1 · nome -->
+      <section class="passo" data-passo="1">
+        <p class="conta">Pergunta 1 de 6</p>
+        <h2 class="pergunta">Como prefere que eu te chame?</h2>
+        <p class="ajuda">Pode ser só o primeiro nome, ou como preferir.</p>
+        <label class="rotulo" for="nome">Nome</label>
+        <input class="campo" type="text" id="nome" autocomplete="given-name" placeholder="Seu nome" />
+        <p class="erro" data-erro></p>
+        <div class="acoes">
+          <button class="btn fantasma" data-acao="voltar">Voltar</button>
+          <button class="btn" data-acao="proximo">Próxima</button>
+        </div>
+      </section>
+
+      <!-- 2 · primeira vez -->
+      <section class="passo" data-passo="2">
+        <p class="conta">Pergunta 2 de 6</p>
+        <h2 class="pergunta">A gente já se encontrou antes?</h2>
+        <div class="opcoes" data-grupo="conhecido">
+          <button class="opcao" data-valor="Primeira vez"><span class="bolinha"></span>Não, seria a primeira vez</button>
+          <button class="opcao" data-valor="Já nos encontramos"><span class="bolinha"></span>Sim, já nos encontramos</button>
+        </div>
+        <p class="erro" data-erro></p>
+        <div class="acoes">
+          <button class="btn fantasma" data-acao="voltar">Voltar</button>
+        </div>
+      </section>
+
+      <!-- 3 · onde -->
+      <section class="passo" data-passo="3">
+        <p class="conta">Pergunta 3 de 6</p>
+        <h2 class="pergunta">Que tipo de encontro você procura?</h2>
+        <div class="opcoes" data-grupo="tipo">
+          <button class="opcao" data-valor="No local dela, em Jardim da Penha"><span class="bolinha"></span>No seu local, em Jardim da Penha</button>
+          <button class="opcao" data-valor="Saída — no meu hotel"><span class="bolinha"></span>Saída — no meu hotel</button>
+          <button class="opcao" data-valor="Jantar ou evento"><span class="bolinha"></span>Jantar ou evento</button>
+          <button class="opcao" data-valor="Viagem"><span class="bolinha"></span>Viagem</button>
+        </div>
+        <p class="erro" data-erro></p>
+        <div class="acoes">
+          <button class="btn fantasma" data-acao="voltar">Voltar</button>
+        </div>
+      </section>
+
+      <!-- 4 · duracao -->
+      <section class="passo" data-passo="4">
+        <p class="conta">Pergunta 4 de 6</p>
+        <h2 class="pergunta">Por quanto tempo?</h2>
+        <div class="opcoes" data-grupo="duracao">
+          <button class="opcao" data-valor="1 hora"><span class="bolinha"></span>1 hora</button>
+          <button class="opcao" data-valor="2 horas"><span class="bolinha"></span>2 horas</button>
+          <button class="opcao" data-valor="Pernoite (até 6h)"><span class="bolinha"></span>Pernoite — até 6 horas</button>
+          <button class="opcao" data-valor="Viagem / diária"><span class="bolinha"></span>Viagem, por diária</button>
+        </div>
+        <p class="erro" data-erro></p>
+        <div class="acoes">
+          <button class="btn fantasma" data-acao="voltar">Voltar</button>
+        </div>
+      </section>
+
+      <!-- 5 · quando -->
+      <section class="passo" data-passo="5">
+        <p class="conta">Pergunta 5 de 6</p>
+        <h2 class="pergunta">Quando você gostaria?</h2>
+        <p class="ajuda">Se ainda não tiver certeza da data, tudo bem — a gente acerta no WhatsApp.</p>
+        <div class="dupla">
+          <div>
+            <label class="rotulo" for="data">Dia</label>
+            <input class="campo" type="date" id="data" />
+          </div>
+          <div>
+            <label class="rotulo" for="periodo">Período</label>
+            <select class="campo" id="periodo">
+              <option value="">Escolher…</option>
+              <option value="Manhã">Manhã</option>
+              <option value="Tarde">Tarde</option>
+              <option value="Noite">Noite</option>
+              <option value="A combinar">A combinar</option>
+            </select>
+          </div>
+        </div>
+        <p class="erro" data-erro></p>
+        <div class="acoes">
+          <button class="btn fantasma" data-acao="voltar">Voltar</button>
+          <button class="btn" data-acao="proximo">Próxima</button>
+        </div>
+      </section>
+
+      <!-- 6 · como achou -->
+      <section class="passo" data-passo="6">
+        <p class="conta">Pergunta 6 de 6</p>
+        <h2 class="pergunta">Como você chegou até mim?</h2>
+        <div class="opcoes" data-grupo="origem">
+          <button class="opcao" data-valor="Google"><span class="bolinha"></span>Google</button>
+          <button class="opcao" data-valor="Fatal Model"><span class="bolinha"></span>Fatal Model</button>
+          <button class="opcao" data-valor="Ilha do Prazer"><span class="bolinha"></span>Ilha do Prazer</button>
+          <button class="opcao" data-valor="Indicação"><span class="bolinha"></span>Indicação de alguém</button>
+          <button class="opcao" data-valor="Outro"><span class="bolinha"></span>Outro</button>
+        </div>
+        <p class="erro" data-erro></p>
+        <div class="acoes">
+          <button class="btn fantasma" data-acao="voltar">Voltar</button>
+        </div>
+      </section>
+
+      <!-- 7 · fecho -->
+      <section class="passo" data-passo="7">
+        <p class="conta">Tudo certo</p>
+        <h2 class="pergunta">Confere se está certo</h2>
+        <p class="ajuda">É só tocar em enviar — sua solicitação abre no WhatsApp já escrita.</p>
+
+        <dl class="resumo" id="resumo"></dl>
+
+        <div class="aviso">
+          <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 3.6L19.4 18H2.6L11 3.6z"/><path d="M11 9v4M11 15.4v.1"/></svg>
+          <p>
+            Recebo <strong>somente com hora marcada</strong>. Para deslocamento até o seu local
+            é necessário <strong>sinal de 50%</strong> para reserva com antecedência,
+            <strong>sem reembolso em caso de cancelamento</strong>.
+          </p>
+        </div>
+
+        <div class="opcoes" data-grupo="aceite">
+          <button class="opcao" data-valor="Li e concordo"><span class="bolinha"></span>Li e concordo com as condições</button>
+        </div>
+        <p class="erro" data-erro></p>
+
+        <div class="acoes">
+          <button class="btn fantasma" data-acao="voltar">Voltar</button>
+          <a class="btn" id="enviar" href="#" target="_blank" rel="noopener">Enviar no WhatsApp</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    Suas respostas não ficam salvas neste site — elas só montam a mensagem que você envia.
+    <br /><a href="/">helenarise.com.br</a>
+  </footer>
+
+  <script>
+  (function(){
+    var FONE = '5527998109991';
+    var passos = Array.prototype.slice.call(document.querySelectorAll('.passo'));
+    var barra  = document.getElementById('barra');
+    var atual  = 0;
+    var R = {};
+
+    function mostra(n){
+      if(n < 0 || n >= passos.length) return;
+      passos[atual].classList.remove('ativo');
+      atual = n;
+      passos[atual].classList.add('ativo');
+      barra.style.width = Math.round((atual / (passos.length - 1)) * 100) + '%';
+      limpaErro();
+      window.scrollTo({top:0, behavior:'smooth'});
+      var foco = passos[atual].querySelector('input, select, .opcao, .btn');
+      if(foco && window.innerWidth > 720){ try{ foco.focus({preventScroll:true}); }catch(e){} }
+      if(atual === passos.length - 1) montaResumo();
+    }
+
+    function limpaErro(){
+      var e = passos[atual].querySelector('[data-erro]');
+      if(e) e.textContent = '';
+    }
+    function erro(msg){
+      var e = passos[atual].querySelector('[data-erro]');
+      if(e) e.textContent = msg;
+    }
+
+    function valida(){
+      if(atual === 1){
+        var nome = document.getElementById('nome').value.trim();
+        if(nome.length < 2){ erro('Me diz só como te chamar.'); return false; }
+        R.nome = nome; return true;
+      }
+      if(atual === 5){
+        var d = document.getElementById('data').value;
+        var p = document.getElementById('periodo').value;
+        if(!d && !p){ erro('Escolha ao menos o período, ou "A combinar".'); return false; }
+        if(d){
+          var pd = d.split('-');
+          R.quando = pd[2] + '/' + pd[1] + '/' + pd[0] + (p ? ' · ' + p : '');
+        } else {
+          R.quando = p;
+        }
+        return true;
+      }
+      return true;
+    }
+
+    document.addEventListener('click', function(ev){
+      var alvo = ev.target.closest('[data-acao], .opcao');
+      if(!alvo) return;
+
+      if(alvo.classList.contains('opcao')){
+        ev.preventDefault();
+        var grupo = alvo.parentNode;
+        Array.prototype.forEach.call(grupo.children, function(b){ b.classList.remove('marcada'); });
+        alvo.classList.add('marcada');
+        R[grupo.getAttribute('data-grupo')] = alvo.getAttribute('data-valor');
+        limpaErro();
+        if(grupo.getAttribute('data-grupo') === 'aceite'){ preparaLink(); return; }
+        setTimeout(function(){ mostra(atual + 1); }, 230);
+        return;
+      }
+
+      var acao = alvo.getAttribute('data-acao');
+      if(acao === 'proximo'){ ev.preventDefault(); if(valida()) mostra(atual + 1); }
+      if(acao === 'voltar'){ ev.preventDefault(); mostra(atual - 1); }
+    });
+
+    document.addEventListener('keydown', function(ev){
+      if(ev.key !== 'Enter') return;
+      var p = passos[atual];
+      if(ev.target.tagName === 'A') return;
+      var btn = p.querySelector('[data-acao="proximo"]');
+      if(btn){ ev.preventDefault(); btn.click(); }
+    });
+
+    function linhas(){
+      return [
+        ['Nome',            R.nome],
+        ['Já nos encontramos', R.conhecido],
+        ['Encontro',        R.tipo],
+        ['Duração',         R.duracao],
+        ['Quando',          R.quando],
+        ['Como me encontrou', R.origem]
+      ].filter(function(l){ return l[1]; });
+    }
+
+    function montaResumo(){
+      var dl = document.getElementById('resumo');
+      dl.innerHTML = linhas().map(function(l){
+        return '<div><dt>' + l[0] + '</dt><dd>' + escapa(l[1]) + '</dd></div>';
+      }).join('');
+      preparaLink();
+    }
+
+    function escapa(t){
+      return String(t).replace(/[&<>"]/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+      });
+    }
+
+    function preparaLink(){
+      var txt = '*Solicitação de horário — helenarise.com.br*\n\n';
+      linhas().forEach(function(l){ txt += '*' + l[0] + ':* ' + l[1] + '\n'; });
+      if(R.aceite) txt += '\n_Li e concordo com as condições de agendamento._';
+      document.getElementById('enviar').setAttribute(
+        'href', 'https://wa.me/' + FONE + '?text=' + encodeURIComponent(txt)
+      );
+    }
+
+    document.getElementById('enviar').addEventListener('click', function(ev){
+      if(!R.aceite){
+        ev.preventDefault();
+        erro('Confirme que leu as condições para enviar.');
+        return;
+      }
+      preparaLink();
+    });
+
+    mostra(0);
+  })();
+  </script>
+
+</body>
+</html>
