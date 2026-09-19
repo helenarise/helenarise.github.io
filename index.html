@@ -333,8 +333,8 @@
           <li>Reserva somente pelo WhatsApp</li>
           <li>Vou até o seu hotel, com o transporte por sua conta</li>
         </ul>
-        <a href="https://wa.me/5527998524764?text=*Oi%20Helena%2C%20tudo%20bem%3F*%20%E2%9C%A8%0AAdorei%20conhecer%20seu%20site%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20hor%C3%A1rios%20e%20valores." class="btn-solid" style="width:100%;text-align:center;" target="_blank" rel="noopener">Reservar pelo WhatsApp</a>
-        <a href="/verificacao.html" class="btn-ghost" style="width:100%;text-align:center;margin-top:12px;">Solicitar meu horário</a>
+        <a href="/verificacao.html" data-abre-selecao class="btn-solid" style="width:100%;text-align:center;">Reservar pelo WhatsApp</a>
+        <a href="#ficha" class="btn-ghost" style="width:100%;text-align:center;margin-top:12px;">Como funciona meu atendimento</a>
         <div class="ficha-destaque" style="margin-top:26px;">
           <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 3.6L19.4 18H2.6L11 3.6z"/><path d="M11 9v4M11 15.4v.1"/></svg>
           <div>
@@ -817,5 +817,324 @@
   </script>
 
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "da3d4d9727aa4390b0bd4abc0bba682e"}'></script><!-- End Cloudflare Web Analytics -->
+
+  <!-- ===== POP-UP DE SELEÇÃO ===== -->
+  <style>
+    .sel-backdrop{position:fixed;inset:0;z-index:9999;background:rgba(8,7,6,.86);backdrop-filter:blur(6px);
+      display:none;align-items:center;justify-content:center;padding:24px;overflow-y:auto;}
+    .sel-backdrop.aberto{display:flex;}
+    .sel-caixa{position:relative;width:100%;max-width:520px;background:var(--ink);
+      border:1px solid rgba(184,145,58,.35);box-shadow:0 30px 90px rgba(0,0,0,.6);
+      animation:selEntra .3s cubic-bezier(.2,.7,.3,1);max-height:92vh;display:flex;flex-direction:column;}
+    @keyframes selEntra{from{opacity:0;transform:translateY(18px) scale(.98);}to{opacity:1;transform:none;}}
+    .sel-barra{height:2px;background:rgba(253,252,250,.08);flex-shrink:0;}
+    .sel-barra i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s cubic-bezier(.4,0,.2,1);}
+    .sel-fechar{position:absolute;top:13px;right:15px;z-index:2;width:30px;height:30px;padding:0;
+      background:transparent;border:none;cursor:pointer;color:rgba(253,252,250,.4);font-size:24px;
+      line-height:1;transition:color .25s;font-family:var(--sans);}
+    .sel-fechar:hover{color:var(--gold-pale);}
+    .sel-corpo{padding:42px 38px 34px;overflow-y:auto;}
+    .sel-passo{display:none;}
+    .sel-passo.ativo{display:block;animation:selFade .32s ease;}
+    @keyframes selFade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+    .sel-conta{font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.26em;
+      text-transform:uppercase;color:var(--gold);margin-bottom:13px;}
+    .sel-titulo{font-family:var(--serif);font-size:clamp(1.35rem,4.4vw,1.8rem);font-weight:400;
+      line-height:1.25;color:var(--white);margin-bottom:10px;letter-spacing:-.01em;}
+    .sel-ajuda{font-family:var(--sans);font-size:13px;font-weight:300;line-height:1.7;
+      color:rgba(253,252,250,.48);margin-bottom:24px;}
+    .sel-ops{display:flex;flex-direction:column;gap:9px;}
+    .sel-op{width:100%;text-align:left;font-family:var(--sans);font-size:14px;font-weight:300;
+      color:rgba(253,252,250,.85);background:transparent;border:1px solid rgba(253,252,250,.15);
+      padding:15px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;
+      transition:border-color .22s,background .22s,color .22s;}
+    .sel-op:hover,.sel-op:focus-visible{border-color:var(--gold);color:var(--white);
+      background:rgba(184,145,58,.08);outline:none;}
+    .sel-op.on{border-color:var(--gold);background:rgba(184,145,58,.14);color:var(--white);}
+    .sel-bola{flex-shrink:0;width:14px;height:14px;border-radius:50%;
+      border:1px solid rgba(253,252,250,.3);position:relative;transition:border-color .22s;}
+    .sel-op.on .sel-bola{border-color:var(--gold);}
+    .sel-op.on .sel-bola::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--gold);}
+    .sel-campo{width:100%;font-family:var(--sans);font-size:16px;font-weight:300;color:var(--white);
+      background:transparent;border:none;border-bottom:1px solid rgba(253,252,250,.22);
+      padding:12px 2px;transition:border-color .3s;}
+    .sel-campo::placeholder{color:rgba(253,252,250,.26);}
+    .sel-campo:focus{outline:none;border-bottom-color:var(--gold);}
+    .sel-campo[type=date]{color-scheme:dark;}
+    .sel-dupla{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .sel-rot{display:block;font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.2em;
+      text-transform:uppercase;color:rgba(253,252,250,.38);margin-bottom:6px;}
+    .sel-erro{font-family:var(--sans);font-size:12px;font-weight:300;color:#e0a0a0;margin-top:11px;min-height:16px;}
+    .sel-acoes{display:flex;align-items:center;gap:12px;margin-top:26px;flex-wrap:wrap;}
+    .sel-btn{font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:.2em;
+      text-transform:uppercase;padding:14px 32px;cursor:pointer;border:1px solid var(--gold);
+      background:var(--gold);color:var(--ink);transition:background .28s;display:inline-block;text-decoration:none;}
+    .sel-btn:hover{background:var(--gold-pale);border-color:var(--gold-pale);}
+    .sel-btn.ghost{background:transparent;color:rgba(253,252,250,.55);
+      border-color:rgba(253,252,250,.18);padding:14px 22px;}
+    .sel-btn.ghost:hover{border-color:var(--gold);color:var(--gold-pale);background:transparent;}
+    .sel-resumo{border-top:1px solid rgba(253,252,250,.1);border-bottom:1px solid rgba(253,252,250,.1);
+      padding:18px 0;margin-bottom:22px;display:flex;flex-direction:column;gap:11px;}
+    .sel-resumo div{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;}
+    .sel-resumo dt{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.17em;
+      text-transform:uppercase;color:rgba(253,252,250,.38);padding-top:3px;flex-shrink:0;}
+    .sel-resumo dd{font-family:var(--sans);font-size:13px;font-weight:300;
+      color:rgba(253,252,250,.85);text-align:right;}
+    .sel-nota{display:flex;gap:12px;align-items:flex-start;background:rgba(184,145,58,.07);
+      border:1px solid rgba(184,145,58,.3);border-left:3px solid var(--gold);padding:17px 19px;margin-bottom:20px;}
+    .sel-nota svg{flex-shrink:0;width:17px;height:17px;stroke:var(--gold);fill:none;
+      stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-top:2px;}
+    .sel-nota p{font-family:var(--sans);font-size:12.5px;font-weight:300;line-height:1.7;color:rgba(253,252,250,.72);}
+    .sel-nota strong{font-weight:500;color:var(--gold-pale);}
+    @media(max-width:560px){
+      .sel-backdrop{padding:0;align-items:stretch;}
+      .sel-caixa{max-width:none;max-height:none;min-height:100svh;border:none;}
+      .sel-corpo{padding:38px 24px 30px;}
+      .sel-dupla{grid-template-columns:1fr;gap:18px;}
+      .sel-acoes .sel-btn{flex:1;text-align:center;}
+    }
+    @media(prefers-reduced-motion:reduce){.sel-caixa,.sel-passo{animation:none;}.sel-barra i{transition:none;}}
+  </style>
+
+  <div class="sel-backdrop" id="selModal" role="dialog" aria-modal="true" aria-labelledby="selTit" hidden>
+    <div class="sel-caixa">
+      <div class="sel-barra"><i id="selBarra"></i></div>
+      <button class="sel-fechar" id="selFechar" aria-label="Fechar">&times;</button>
+      <div class="sel-corpo">
+
+        <section class="sel-passo ativo" data-p="0">
+          <p class="sel-conta">Seleção</p>
+          <h2 class="sel-titulo" id="selTit">Antes de marcarmos,<br />preciso te conhecer um pouco.</h2>
+          <p class="sel-ajuda">Seis perguntas rápidas, menos de um minuto. No fim sua solicitação abre no WhatsApp já escrita.</p>
+          <div class="sel-acoes"><button class="sel-btn" data-a="next">Começar</button></div>
+        </section>
+
+        <section class="sel-passo" data-p="1">
+          <p class="sel-conta">1 de 6</p>
+          <h2 class="sel-titulo">Como prefere que eu te chame?</h2>
+          <label class="sel-rot" for="selNome">Nome</label>
+          <input class="sel-campo" type="text" id="selNome" autocomplete="given-name" placeholder="Seu nome" />
+          <p class="sel-erro" data-e></p>
+          <div class="sel-acoes">
+            <button class="sel-btn ghost" data-a="back">Voltar</button>
+            <button class="sel-btn" data-a="next">Próxima</button>
+          </div>
+        </section>
+
+        <section class="sel-passo" data-p="2">
+          <p class="sel-conta">2 de 6</p>
+          <h2 class="sel-titulo">A gente já se encontrou antes?</h2>
+          <div class="sel-ops" data-g="conhecido">
+            <button class="sel-op" data-v="Primeira vez"><span class="sel-bola"></span>Não, seria a primeira vez</button>
+            <button class="sel-op" data-v="Já nos encontramos"><span class="sel-bola"></span>Sim, já nos encontramos</button>
+          </div>
+          <p class="sel-erro" data-e></p>
+          <div class="sel-acoes"><button class="sel-btn ghost" data-a="back">Voltar</button></div>
+        </section>
+
+        <section class="sel-passo" data-p="3">
+          <p class="sel-conta">3 de 6</p>
+          <h2 class="sel-titulo">Que tipo de encontro você procura?</h2>
+          <div class="sel-ops" data-g="tipo">
+            <button class="sel-op" data-v="No local dela, em Jardim da Penha"><span class="sel-bola"></span>No seu local, em Jardim da Penha</button>
+            <button class="sel-op" data-v="Saída — no meu hotel"><span class="sel-bola"></span>Saída — no meu hotel</button>
+            <button class="sel-op" data-v="Jantar ou evento"><span class="sel-bola"></span>Jantar ou evento</button>
+            <button class="sel-op" data-v="Viagem"><span class="sel-bola"></span>Viagem</button>
+          </div>
+          <p class="sel-erro" data-e></p>
+          <div class="sel-acoes"><button class="sel-btn ghost" data-a="back">Voltar</button></div>
+        </section>
+
+        <section class="sel-passo" data-p="4">
+          <p class="sel-conta">4 de 6</p>
+          <h2 class="sel-titulo">Por quanto tempo?</h2>
+          <div class="sel-ops" data-g="duracao">
+            <button class="sel-op" data-v="1 hora"><span class="sel-bola"></span>1 hora</button>
+            <button class="sel-op" data-v="2 horas"><span class="sel-bola"></span>2 horas</button>
+            <button class="sel-op" data-v="Jantar ou evento (até 4h)"><span class="sel-bola"></span>Jantar ou evento — até 4 horas</button>
+            <button class="sel-op" data-v="Pernoite (até 6h)"><span class="sel-bola"></span>Pernoite — até 6 horas</button>
+            <button class="sel-op" data-v="Viagem / diária"><span class="sel-bola"></span>Viagem, por diária</button>
+          </div>
+          <p class="sel-erro" data-e></p>
+          <div class="sel-acoes"><button class="sel-btn ghost" data-a="back">Voltar</button></div>
+        </section>
+
+        <section class="sel-passo" data-p="5">
+          <p class="sel-conta">5 de 6</p>
+          <h2 class="sel-titulo">Quando você gostaria?</h2>
+          <p class="sel-ajuda">Sem certeza da data? Tudo bem — a gente acerta no WhatsApp.</p>
+          <div class="sel-dupla">
+            <div><label class="sel-rot" for="selData">Dia</label><input class="sel-campo" type="date" id="selData" /></div>
+            <div><label class="sel-rot" for="selPer">Período</label>
+              <select class="sel-campo" id="selPer">
+                <option value="">Escolher…</option>
+                <option value="Manhã">Manhã</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Noite">Noite</option>
+                <option value="A combinar">A combinar</option>
+              </select>
+            </div>
+          </div>
+          <p class="sel-erro" data-e></p>
+          <div class="sel-acoes">
+            <button class="sel-btn ghost" data-a="back">Voltar</button>
+            <button class="sel-btn" data-a="next">Próxima</button>
+          </div>
+        </section>
+
+        <section class="sel-passo" data-p="6">
+          <p class="sel-conta">6 de 6</p>
+          <h2 class="sel-titulo">Como você chegou até mim?</h2>
+          <div class="sel-ops" data-g="origem">
+            <button class="sel-op" data-v="Google"><span class="sel-bola"></span>Google</button>
+            <button class="sel-op" data-v="Fatal Model"><span class="sel-bola"></span>Fatal Model</button>
+            <button class="sel-op" data-v="Ilha do Prazer"><span class="sel-bola"></span>Ilha do Prazer</button>
+            <button class="sel-op" data-v="Indicação"><span class="sel-bola"></span>Indicação de alguém</button>
+            <button class="sel-op" data-v="Outro"><span class="sel-bola"></span>Outro</button>
+          </div>
+          <p class="sel-erro" data-e></p>
+          <div class="sel-acoes"><button class="sel-btn ghost" data-a="back">Voltar</button></div>
+        </section>
+
+        <section class="sel-passo" data-p="7">
+          <p class="sel-conta">Tudo certo</p>
+          <h2 class="sel-titulo">Confere se está certo</h2>
+          <dl class="sel-resumo" id="selResumo"></dl>
+          <div class="sel-nota">
+            <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 3.6L19.4 18H2.6L11 3.6z"/><path d="M11 9v4M11 15.4v.1"/></svg>
+            <p>Recebo <strong>somente com hora marcada</strong>. Para deslocamento até o seu local é necessário <strong>sinal de 50%</strong> para reserva com antecedência, <strong>sem reembolso em caso de cancelamento</strong>.</p>
+          </div>
+          <div class="sel-ops" data-g="aceite">
+            <button class="sel-op" data-v="Li e concordo"><span class="sel-bola"></span>Li e concordo com as condições</button>
+          </div>
+          <p class="sel-erro" data-e></p>
+          <div class="sel-acoes">
+            <button class="sel-btn ghost" data-a="back">Voltar</button>
+            <a class="sel-btn" id="selEnviar" href="#" target="_blank" rel="noopener">Enviar no WhatsApp</a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var FONE='5527998524764';
+    var modal=document.getElementById('selModal');
+    if(!modal) return;
+    var passos=[].slice.call(modal.querySelectorAll('.sel-passo'));
+    var barra=document.getElementById('selBarra');
+    var atual=0, R={}, ultimoFoco=null;
+
+    function abrir(){
+      ultimoFoco=document.activeElement;
+      modal.hidden=false; modal.classList.add('aberto');
+      document.body.style.overflow='hidden';
+      zera(); mostra(0);
+    }
+    function fechar(){
+      modal.classList.remove('aberto'); modal.hidden=true;
+      document.body.style.overflow='';
+      if(ultimoFoco&&ultimoFoco.focus) ultimoFoco.focus();
+    }
+    function zera(){
+      R={};
+      modal.querySelectorAll('.sel-op.on').forEach(function(b){b.classList.remove('on');});
+      var n=document.getElementById('selNome'); if(n) n.value='';
+      var d=document.getElementById('selData'); if(d) d.value='';
+      var p=document.getElementById('selPer'); if(p) p.value='';
+      modal.querySelectorAll('[data-e]').forEach(function(e){e.textContent='';});
+    }
+    function mostra(i){
+      if(i<0||i>=passos.length) return;
+      passos[atual].classList.remove('ativo');
+      atual=i; passos[atual].classList.add('ativo');
+      barra.style.width=Math.round(atual/(passos.length-1)*100)+'%';
+      modal.querySelector('.sel-corpo').scrollTop=0;
+      var f=passos[atual].querySelector('input,select,.sel-op,.sel-btn');
+      if(f&&window.innerWidth>760){try{f.focus({preventScroll:true});}catch(e){}}
+      if(atual===passos.length-1) resumo();
+    }
+    function erro(m){var e=passos[atual].querySelector('[data-e]'); if(e) e.textContent=m;}
+    function limpa(){erro('');}
+
+    function valida(){
+      if(atual===1){
+        var v=document.getElementById('selNome').value.trim();
+        if(v.length<2){erro('Me diz só como te chamar.');return false;}
+        R.nome=v; return true;
+      }
+      if(atual===5){
+        var d=document.getElementById('selData').value, p=document.getElementById('selPer').value;
+        if(!d&&!p){erro('Escolha ao menos o período, ou "A combinar".');return false;}
+        if(d){var x=d.split('-'); R.quando=x[2]+'/'+x[1]+'/'+x[0]+(p?' · '+p:'');}
+        else R.quando=p;
+        return true;
+      }
+      return true;
+    }
+
+    function linhas(){
+      return [['Nome',R.nome],['Já nos encontramos',R.conhecido],['Encontro',R.tipo],
+              ['Duração',R.duracao],['Quando',R.quando],['Como me encontrou',R.origem]]
+             .filter(function(l){return l[1];});
+    }
+    function esc(t){return String(t).replace(/[&<>"]/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function resumo(){
+      document.getElementById('selResumo').innerHTML=linhas().map(function(l){
+        return '<div><dt>'+l[0]+'</dt><dd>'+esc(l[1])+'</dd></div>';}).join('');
+      link();
+    }
+    function link(){
+      var t='*Solicitação de horário — helenarise.com.br*\n\n';
+      linhas().forEach(function(l){t+='*'+l[0]+':* '+l[1]+'\n';});
+      if(R.aceite) t+='\n_Li e concordo com as condições de agendamento._';
+      document.getElementById('selEnviar').setAttribute('href','https://wa.me/'+FONE+'?text='+encodeURIComponent(t));
+    }
+
+    modal.addEventListener('click',function(ev){
+      if(ev.target===modal){fechar();return;}
+      var al=ev.target.closest('[data-a], .sel-op, #selFechar');
+      if(!al) return;
+      if(al.id==='selFechar'){ev.preventDefault();fechar();return;}
+      if(al.classList.contains('sel-op')){
+        ev.preventDefault();
+        var g=al.parentNode;
+        [].forEach.call(g.children,function(b){b.classList.remove('on');});
+        al.classList.add('on');
+        R[g.getAttribute('data-g')]=al.getAttribute('data-v');
+        limpa();
+        if(g.getAttribute('data-g')==='aceite'){link();return;}
+        setTimeout(function(){mostra(atual+1);},220);
+        return;
+      }
+      var a=al.getAttribute('data-a');
+      if(a==='next'){ev.preventDefault(); if(valida()) mostra(atual+1);}
+      if(a==='back'){ev.preventDefault(); mostra(atual-1);}
+    });
+
+    modal.addEventListener('keydown',function(ev){
+      if(ev.key==='Escape'){fechar();return;}
+      if(ev.key==='Enter'&&ev.target.tagName!=='A'){
+        var b=passos[atual].querySelector('[data-a="next"]');
+        if(b){ev.preventDefault();b.click();}
+      }
+    });
+
+    document.getElementById('selEnviar').addEventListener('click',function(ev){
+      if(!R.aceite){ev.preventDefault();erro('Confirme que leu as condições para enviar.');return;}
+      link();
+      setTimeout(fechar,400);
+    });
+
+    document.querySelectorAll('[data-abre-selecao]').forEach(function(b){
+      b.addEventListener('click',function(ev){ev.preventDefault();abrir();});
+    });
+  })();
+  </script>
+  <!-- ===== FIM DO POP-UP ===== -->
+
 </body>
 </html>
