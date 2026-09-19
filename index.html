@@ -195,7 +195,7 @@
       <li><a href="#ficha">Atendimento</a></li>
       <li><a href="/reviews.html">Avaliações</a></li>
       <li><a href="/diario.html">Diário</a></li>
-      <li><a href="https://wa.me/5527998524764?text=*Oi%20Helena%2C%20tudo%20bem%3F*%20%E2%9C%A8%0AAdorei%20conhecer%20seu%20site%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20hor%C3%A1rios%20e%20valores." class="nav-book" target="_blank" rel="noopener">Falar comigo</a></li>
+      <li><a href="#servico" class="nav-book">Falar comigo</a></li>
     </ul>
   </nav>
 
@@ -210,7 +210,7 @@
       <p class="hero-kicker">Local privativo em Jardim da Penha · Próximo à Praia do Canto</p>
       <p class="hero-sub">33 anos • Loira Natural • Olhos Verdes • Mulher biológica • Atendimento somente com hora marcada.</p>
       <div class="hero-ctas">
-        <a href="#contato" class="btn-solid">Falar no WhatsApp</a>
+        <a href="#servico" class="btn-solid">Ver valores e reservar</a>
         <a href="#portfolio" class="btn-ghost">Ver minhas fotos</a>
       </div>
     </div>
@@ -398,8 +398,8 @@
       <p class="label" style="color:var(--gold-pale);">Helena Rise</p>
       <h2>Pronto para<br /><em>me conhecer?</em></h2>
       <p>Me chame no WhatsApp e diga o dia que você prefere. Respondo pessoalmente e confirmo na hora se tenho horário.</p>
-      <p class="cta-price-line">R$ 600 / hora &nbsp;|&nbsp; R$ 400 / 30min</p>
-      <a href="https://wa.me/5527998524764?text=*Oi%20Helena%2C%20tudo%20bem%3F*%20%E2%9C%A8%0AAdorei%20conhecer%20seu%20site%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20hor%C3%A1rios%20e%20valores." class="btn-wa" target="_blank" rel="noopener">
+      <p class="cta-price-line">R$ 900 / hora</p>
+      <a href="/verificacao.html" data-abre-selecao class="btn-wa">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L0 24l6.335-1.508A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.787 9.787 0 01-4.99-1.371l-.358-.213-3.761.896.957-3.667-.234-.374A9.774 9.774 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
         Falar comigo
       </a>
@@ -862,6 +862,8 @@
     .sel-campo:focus{outline:none;border-bottom-color:var(--gold);}
     .sel-campo[type=date]{color-scheme:dark;}
     .sel-dupla{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .sel-chips{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+    @media(max-width:560px){.sel-chips{grid-template-columns:1fr 1fr;}}
     .sel-rot{display:block;font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.2em;
       text-transform:uppercase;color:rgba(253,252,250,.38);margin-bottom:6px;}
     .sel-erro{font-family:var(--sans);font-size:12px;font-weight:300;color:#e0a0a0;margin-top:11px;min-height:16px;}
@@ -962,24 +964,18 @@
         <section class="sel-passo" data-p="5">
           <p class="sel-conta">5 de 6</p>
           <h2 class="sel-titulo">Quando você gostaria?</h2>
-          <p class="sel-ajuda">Sem certeza da data? Tudo bem — a gente acerta no WhatsApp.</p>
-          <div class="sel-dupla">
-            <div><label class="sel-rot" for="selData">Dia</label><input class="sel-campo" type="date" id="selData" /></div>
-            <div><label class="sel-rot" for="selPer">Período</label>
-              <select class="sel-campo" id="selPer">
-                <option value="">Escolher…</option>
-                <option value="Manhã">Manhã</option>
-                <option value="Tarde">Tarde</option>
-                <option value="Noite">Noite</option>
-                <option value="A combinar">A combinar</option>
-              </select>
-            </div>
+          <p class="sel-ajuda">Sem certeza da data? Escolha "a combinar" — a gente acerta no WhatsApp.</p>
+          <label class="sel-rot" for="selData">Dia <span style="text-transform:none;letter-spacing:0;opacity:.6;">(opcional)</span></label>
+          <input class="sel-campo" type="date" id="selData" />
+          <p class="sel-rot" style="margin-top:24px;">Período</p>
+          <div class="sel-ops sel-chips" data-g="periodo">
+            <button class="sel-op" data-v="Manhã"><span class="sel-bola"></span>Manhã</button>
+            <button class="sel-op" data-v="Tarde"><span class="sel-bola"></span>Tarde</button>
+            <button class="sel-op" data-v="Noite"><span class="sel-bola"></span>Noite</button>
+            <button class="sel-op" data-v="A combinar"><span class="sel-bola"></span>A combinar</button>
           </div>
           <p class="sel-erro" data-e></p>
-          <div class="sel-acoes">
-            <button class="sel-btn ghost" data-a="back">Voltar</button>
-            <button class="sel-btn" data-a="next">Próxima</button>
-          </div>
+          <div class="sel-acoes"><button class="sel-btn ghost" data-a="back">Voltar</button></div>
         </section>
 
         <section class="sel-passo" data-p="6">
@@ -987,8 +983,6 @@
           <h2 class="sel-titulo">Como você chegou até mim?</h2>
           <div class="sel-ops" data-g="origem">
             <button class="sel-op" data-v="Google"><span class="sel-bola"></span>Google</button>
-            <button class="sel-op" data-v="Fatal Model"><span class="sel-bola"></span>Fatal Model</button>
-            <button class="sel-op" data-v="Ilha do Prazer"><span class="sel-bola"></span>Ilha do Prazer</button>
             <button class="sel-op" data-v="Indicação"><span class="sel-bola"></span>Indicação de alguém</button>
             <button class="sel-op" data-v="Outro"><span class="sel-bola"></span>Outro</button>
           </div>
@@ -1002,7 +996,7 @@
           <dl class="sel-resumo" id="selResumo"></dl>
           <div class="sel-nota">
             <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 3.6L19.4 18H2.6L11 3.6z"/><path d="M11 9v4M11 15.4v.1"/></svg>
-            <p>Recebo <strong>somente com hora marcada</strong>. Para deslocamento até o seu local é necessário <strong>sinal de 50%</strong> para reserva com antecedência, <strong>sem reembolso em caso de cancelamento</strong>.</p>
+            <p><strong>Saída somente com hora marcada</strong>. Para deslocamento até o seu local é necessário <strong>sinal de 50%</strong> para reserva com antecedência, <strong>sem reembolso em caso de cancelamento</strong>.</p>
           </div>
           <div class="sel-ops" data-g="aceite">
             <button class="sel-op" data-v="Li e concordo"><span class="sel-bola"></span>Li e concordo com as condições</button>
@@ -1043,7 +1037,6 @@
       modal.querySelectorAll('.sel-op.on').forEach(function(b){b.classList.remove('on');});
       var n=document.getElementById('selNome'); if(n) n.value='';
       var d=document.getElementById('selData'); if(d) d.value='';
-      var p=document.getElementById('selPer'); if(p) p.value='';
       modal.querySelectorAll('[data-e]').forEach(function(e){e.textContent='';});
     }
     function mostra(i){
@@ -1064,13 +1057,6 @@
         var v=document.getElementById('selNome').value.trim();
         if(v.length<2){erro('Me diz só como te chamar.');return false;}
         R.nome=v; return true;
-      }
-      if(atual===5){
-        var d=document.getElementById('selData').value, p=document.getElementById('selPer').value;
-        if(!d&&!p){erro('Escolha ao menos o período, ou "A combinar".');return false;}
-        if(d){var x=d.split('-'); R.quando=x[2]+'/'+x[1]+'/'+x[0]+(p?' · '+p:'');}
-        else R.quando=p;
-        return true;
       }
       return true;
     }
@@ -1106,6 +1092,11 @@
         al.classList.add('on');
         R[g.getAttribute('data-g')]=al.getAttribute('data-v');
         limpa();
+        if(g.getAttribute('data-g')==='periodo'){
+          var dd=document.getElementById('selData').value;
+          if(dd){var xx=dd.split('-'); R.quando=xx[2]+'/'+xx[1]+'/'+xx[0]+' · '+al.getAttribute('data-v');}
+          else R.quando=al.getAttribute('data-v');
+        }
         if(g.getAttribute('data-g')==='aceite'){link();return;}
         setTimeout(function(){mostra(atual+1);},220);
         return;
