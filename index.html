@@ -71,6 +71,27 @@
     .btn-solid:hover{background:var(--gold-pale);}
     .btn-ghost{font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;padding:15px 38px;background:transparent;color:rgba(253,252,250,.75);border:1px solid rgba(253,252,250,.25);cursor:pointer;transition:border-color .3s,color .3s;display:inline-block;}
     .btn-ghost:hover{border-color:var(--gold);color:var(--gold-pale);}
+    .temporada{background:var(--gold);color:var(--ink);padding:26px 6%;text-align:center;}
+    .temporada .tp-label{font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:.3em;
+      text-transform:uppercase;opacity:.65;margin-bottom:9px;}
+    .temporada h2{font-family:var(--serif);font-size:clamp(1.3rem,3.6vw,1.9rem);font-weight:400;
+      line-height:1.25;margin-bottom:8px;letter-spacing:-.01em;}
+    .temporada p{font-family:var(--sans);font-size:13px;font-weight:300;line-height:1.7;
+      max-width:560px;margin:0 auto;opacity:.82;}
+    .temporada strong{font-weight:500;}
+
+    .dupla{background:var(--ink);padding:92px 6%;text-align:center;
+      border-top:1px solid rgba(184,145,58,.2);}
+    .dupla-wrap{max-width:620px;margin:0 auto;}
+    .dupla .label{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.28em;
+      text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+    .dupla h2{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;
+      color:var(--white);line-height:1.22;margin-bottom:20px;letter-spacing:-.01em;}
+    .dupla p{font-family:var(--sans);font-size:14px;font-weight:300;line-height:1.9;
+      color:rgba(253,252,250,.6);margin-bottom:34px;}
+    .dupla .dupla-nome{font-family:var(--serif);font-style:italic;color:var(--gold-pale);}
+    .dupla-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    @media(max-width:560px){.dupla{padding:66px 6%;}.dupla-btns .btn-solid,.dupla-btns .btn-ghost{width:100%;text-align:center;}}
     .marquee-wrap{background:var(--gold);overflow:hidden;}
     .marquee-track{display:flex;animation:marquee 26s linear infinite;white-space:nowrap;}
     .marquee-item{display:flex;align-items:center;padding:16px 0;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);flex-shrink:0;}
@@ -207,7 +228,7 @@
     <div class="hero-body">
       <p class="hero-tag">Acompanhante de Luxo em Vitória</p>
       <h1 class="hero-title">Discrição e elegância<br /><em>para homens exigentes.</em></h1>
-      <p class="hero-kicker">Local privativo em Jardim da Penha · Próximo à Praia do Canto</p>
+      <p class="hero-kicker">Temporada em São Paulo · Ipiranga &nbsp;|&nbsp; Base em Jardim da Penha · Vitória</p>
       <p class="hero-sub">33 anos • Loira Natural • Olhos Verdes • Mulher biológica • Atendimento somente com hora marcada.</p>
       <div class="hero-ctas">
         <a href="#servico" class="btn-solid">Ver valores e reservar</a>
@@ -231,6 +252,14 @@
     </div>
   </div>
 
+  <div class="temporada">
+    <p class="tp-label">Temporada</p>
+    <h2>Em São Paulo &middot; Ipiranga</h2>
+    <p>Estarei em <strong>São Paulo, no Ipiranga</strong>, por curta temporada, com local próprio
+    e agenda reduzida. Datas e disponibilidade pelo WhatsApp. Base em Vitória &middot; ES.</p>
+  </div>
+
+
   <section class="sobre" id="sobre">
     <div class="sobre-visual">
       <!-- FOTO-02 · retrato da seção "Sobre" -->
@@ -245,7 +274,7 @@
       <p><strong>Quem me encontra uma vez, dificilmente encontra só uma vez.</strong></p>
       <p><em>Pronto para viver algo elegante, intenso e inesquecível?</em></p>
       <div class="sobre-stats">
-        <div class="stat"><span class="stat-n">R$900</span><span class="stat-l">/ hora</span></div>
+        <div class="stat"><span class="stat-n">R$1.500</span><span class="stat-l">/ hora</span></div>
         <div class="stat"><span class="stat-n">33</span><span class="stat-l">Anos</span></div>
         <div class="stat"><span class="stat-n">VIP</span><span class="stat-l">Atendimento exclusivo</span></div>
       </div>
@@ -319,7 +348,7 @@
     <div style="display:flex;justify-content:center;">
       <div class="price-card">
         <p class="price-eyebrow">Atendimento VIP</p>
-        <p class="price-amount">R$900</p>
+        <p class="price-amount">R$1.500</p>
         <p class="price-unit">/ hora</p>
         <ul class="price-includes">
           <li>Encontro exclusivo em local particular</li>
@@ -348,17 +377,17 @@
     <div class="precos-extra">
       <div class="pe-card">
         <h3>Saída · no seu local</h3>
-        <p class="pe-valor">R$1.200/h</p>
+        <p class="pe-valor">R$1.800/h</p>
         <p class="pe-nota">Somente hotéis — não atendo residências. O transporte fica por sua conta.</p>
       </div>
       <div class="pe-card">
         <h3>Jantar ou evento · até 4h</h3>
-        <p class="pe-valor">R$2.500</p>
+        <p class="pe-valor">R$4.000</p>
         <p class="pe-nota">Acompanhamento em restaurante ou evento. Somente saída.</p>
       </div>
       <div class="pe-card">
         <h3>Pernoite · até 6h de encontro</h3>
-        <p class="pe-valor">R$8.000</p>
+        <p class="pe-valor">R$9.000</p>
         <p class="pe-nota">Somente saída — não faço pernoite no meu local.</p>
       </div>
       <div class="pe-card">
@@ -368,6 +397,19 @@
       </div>
     </div>
   </section>
+
+  <section class="dupla" id="dupla">
+    <div class="dupla-wrap">
+      <p class="label">A dois</p>
+      <h2>Atendo também em dupla<br />com <span class="dupla-nome">Bianca Bicalho</span></h2>
+      <p>Quando você quiser companhia dupla, atendo junto com a <strong style="color:rgba(253,252,250,.85);font-weight:400;">Bianca Bicalho</strong> — combinamos tudo com antecedência, no mesmo padrão de discrição e hora marcada. Valor da dupla sob consulta pelo WhatsApp.</p>
+      <div class="dupla-btns">
+        <a href="https://www.biancabicalho.com.br/" class="btn-solid" target="_blank" rel="noopener">Conhecer a Bianca</a>
+        <a href="/verificacao.html" data-abre-selecao class="btn-ghost">Reservar as duas</a>
+      </div>
+    </div>
+  </section>
+
 
   <section class="faq-section" id="faq">
     <div class="section-head"><p class="label">Antes de me chamar</p><h2>Perguntas frequentes</h2></div>
@@ -398,7 +440,7 @@
       <p class="label" style="color:var(--gold-pale);">Helena Rise</p>
       <h2>Pronto para<br /><em>me conhecer?</em></h2>
       <p>Me chame no WhatsApp e diga o dia que você prefere. Respondo pessoalmente e confirmo na hora se tenho horário.</p>
-      <p class="cta-price-line">R$ 900 / hora</p>
+      <p class="cta-price-line">R$ 1.500 / hora</p>
       <a href="/verificacao.html" data-abre-selecao class="btn-wa">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L0 24l6.335-1.508A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.787 9.787 0 01-4.99-1.371l-.358-.213-3.761.896.957-3.667-.234-.374A9.774 9.774 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
         Falar comigo
@@ -625,7 +667,7 @@
    "logo": "https://www.helenarise.com.br/helena-rise-acompanhante-jardim-da-penha-com-local.webp",
    "description": "Acompanhante de luxo em Vitória (ES). Local próprio e discreto no Jardim da Penha, próximo à Praia do Canto. Atendimento somente com hora marcada, agenda limitada.",
    "telephone": "+5527998524764",
-   "priceRange": "R$900 - R$12.000",
+   "priceRange": "R$1.500 - R$12.000",
    "currenciesAccepted": "BRL",
    "paymentAccepted": "Pix, Dinheiro, Cartão de crédito",
    "address": {
@@ -654,6 +696,10 @@
     {
      "@type": "Place",
      "name": "Praia do Canto, Vitória - ES"
+    },
+    {
+     "@type": "City",
+     "name": "São Paulo"
     }
    ],
    "availableLanguage": {
@@ -687,7 +733,7 @@
     {
      "@type": "Offer",
      "name": "Encontro de 1 hora em local próprio",
-     "price": "900",
+     "price": "1500",
      "priceCurrency": "BRL",
      "availability": "https://schema.org/InStock",
      "url": "https://www.helenarise.com.br/",
@@ -699,7 +745,7 @@
     {
      "@type": "Offer",
      "name": "Saída — atendimento no hotel do cliente (por hora)",
-     "price": "1200",
+     "price": "1800",
      "priceCurrency": "BRL",
      "availability": "https://schema.org/InStock",
      "url": "https://www.helenarise.com.br/",
@@ -711,7 +757,7 @@
     {
      "@type": "Offer",
      "name": "Jantar ou evento — até 4 horas",
-     "price": "2500",
+     "price": "4000",
      "priceCurrency": "BRL",
      "availability": "https://schema.org/InStock",
      "url": "https://www.helenarise.com.br/",
@@ -723,7 +769,7 @@
     {
      "@type": "Offer",
      "name": "Pernoite — até 6h de encontro",
-     "price": "8000",
+     "price": "9000",
      "priceCurrency": "BRL",
      "availability": "https://schema.org/InStock",
      "url": "https://www.helenarise.com.br/",
