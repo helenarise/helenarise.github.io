@@ -84,17 +84,28 @@
       max-width:560px;margin:0 auto;opacity:.82;}
     .temporada strong{font-weight:500;}
 
-    .dupla{background:var(--ink);padding:92px 6%;text-align:center;
+    .dupla{background:var(--ink);padding:92px 6%;
       border-top:1px solid rgba(184,145,58,.2);}
-    .dupla-wrap{max-width:620px;margin:0 auto;}
+    .dupla-wrap{max-width:1020px;margin:0 auto;display:grid;
+      grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:52px;align-items:center;}
+    .dupla-foto{position:relative;}
+    .dupla-foto img{width:100%;height:auto;object-fit:unset;display:block;}
+    .dupla-foto::after{content:'';position:absolute;inset:13px;
+      outline:1px solid rgba(184,145,58,.5);pointer-events:none;}
+    .dupla-cap{margin-top:15px;font-family:var(--sans);font-size:10px;font-weight:500;
+      letter-spacing:.24em;text-transform:uppercase;color:var(--gold);}
     .dupla .label{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.28em;
       text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-    .dupla h2{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;
-      color:var(--white);line-height:1.22;margin-bottom:20px;letter-spacing:-.01em;}
+    .dupla h2{font-family:var(--serif);font-size:clamp(1.9rem,4.2vw,2.8rem);font-weight:400;
+      color:var(--white);line-height:1.18;margin-bottom:20px;letter-spacing:-.01em;}
     .dupla p{font-family:var(--sans);font-size:14px;font-weight:300;line-height:1.9;
-      color:rgba(253,252,250,.6);margin-bottom:34px;}
+      color:rgba(253,252,250,.6);margin-bottom:18px;}
+    .dupla p:last-of-type{margin-bottom:32px;}
     .dupla .dupla-nome{font-family:var(--serif);font-style:italic;color:var(--gold-pale);}
-    .dupla-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .dupla-btns{display:flex;gap:14px;flex-wrap:wrap;}
+    @media(max-width:860px){.dupla-wrap{grid-template-columns:1fr;gap:34px;max-width:470px;}
+      .dupla-copy{text-align:center;}.dupla-cap{text-align:center;}
+      .dupla-btns{justify-content:center;}}
     @media(max-width:560px){.dupla{padding:66px 6%;}.dupla-btns .btn-solid,.dupla-btns .btn-ghost{width:100%;text-align:center;}}
     .marquee-wrap{background:var(--gold);overflow:hidden;}
     .marquee-track{display:flex;animation:marquee 26s linear infinite;white-space:nowrap;}
@@ -280,7 +291,7 @@
       <p><strong>Men who meet me once rarely meet me only once.</strong></p>
       <p><em>Ready for something elegant, intense and unforgettable?</em></p>
       <div class="sobre-stats">
-        <div class="stat"><span class="stat-n">R$1,000</span><span class="stat-l">/ hour · my place</span></div>
+        <div class="stat"><span class="stat-n">R$1,500</span><span class="stat-l">/ hour · my place</span></div>
         <div class="stat"><span class="stat-n">35</span><span class="stat-l">Years old</span></div>
         <div class="stat"><span class="stat-n">VIP</span><span class="stat-l">Exclusive service</span></div>
       </div>
@@ -354,11 +365,11 @@
     <div style="display:flex;justify-content:center;">
       <div class="price-card">
         <p class="price-eyebrow">VIP service</p>
-        <p class="price-amount">R$1,000</p>
+        <p class="price-amount">R$1,500</p>
         <p class="price-unit">/ hour &middot; at my place in Moema</p>
         <ul class="price-includes">
           <li>Exclusive encounter at my place in Moema — São Paulo</li>
-          <li>Outcall to your hotel, apartment or Airbnb: <strong style="color:rgba(253,252,250,.9);font-weight:400">R$1,500 / hour</strong></li>
+          <li>Outcall to your hotel, apartment or Airbnb: <strong style="color:rgba(253,252,250,.9);font-weight:400">R$2,000 / hour</strong></li>
           <li>I do not visit private residences</li>
           <li>I arrive on time, well dressed and discreet</li>
           <li>Sexy lingerie and a subtle perfume at every meeting</li>
@@ -385,7 +396,7 @@
     <div class="precos-extra">
       <div class="pe-card">
         <h3>Outcall · at your hotel, apartment or Airbnb</h3>
-        <p class="pe-valor">R$1,500</p>
+        <p class="pe-valor">R$2,000</p>
         <p class="pe-nota">Anywhere in the city, booked in advance. Transport is at your expense.</p>
       </div>
       <div class="pe-card">
@@ -403,12 +414,20 @@
 
   <section class="dupla" id="dupla">
     <div class="dupla-wrap">
-      <p class="label">Together</p>
-      <h2>I also see clients as a duo<br />with <span class="dupla-nome">Bianca Bicalho</span></h2>
-      <p>When you would like company for two, I see clients together with <strong style="color:rgba(253,252,250,.85);font-weight:400;">Bianca Bicalho</strong> — everything arranged in advance, with the same discretion and by appointment. Duo rate on request over WhatsApp.</p>
-      <div class="dupla-btns">
-        <a href="https://www.biancabicalho.com.br/" class="btn-solid" target="_blank" rel="noopener">Meet Bianca</a>
-        <a href="https://wa.me/5527998524764?text=*Hi%20Helena%2C%20how%20are%20you%3F*%20%E2%9C%A8%0AI%20came%20across%20your%20website%20and%20I%27d%20like%20to%20know%20more%20about%20your%20availability%20and%20rates." target="_blank" rel="noopener" data-abre-selecao class="btn-ghost">Book both of us</a>
+      <div class="dupla-foto">
+        <!-- FOTO DA DUPLA · retrato da Bianca Bicalho -->
+        <img decoding="async" loading="lazy" width="1200" height="1800" src="/acompanhante-em-dupla-sao-paulo-bianca-bicalho.webp" alt="Bianca Bicalho, escort available as a duo with Helena Rise in Sao Paulo" />
+        <p class="dupla-cap">Bianca Bicalho · São Paulo</p>
+      </div>
+      <div class="dupla-copy">
+        <p class="label">Together</p>
+        <h2>Better than one:<br /><span class="dupla-nome">the two of us</span>.</h2>
+        <p>I see clients as a duo with <strong style="color:rgba(253,252,250,.85);font-weight:400;">Bianca Bicalho</strong> — redhead, 25, the same discretion and by-appointment standard you have seen here. We know each other well enough that nothing feels rehearsed.</p>
+        <p>If you are looking for <strong style="color:rgba(253,252,250,.85);font-weight:400;">two escorts together in São Paulo</strong>, everything is arranged in advance and we arrive together — at my place in Moema, or at your hotel, serviced apartment or Airbnb. Duo rate on request over WhatsApp.</p>
+        <div class="dupla-btns">
+          <a href="https://www.biancabicalho.com.br/en/" class="btn-solid" target="_blank" rel="noopener">Meet Bianca</a>
+          <a href="https://wa.me/5527998524764?text=*Hi%20Helena%2C%20how%20are%20you%3F*%20%E2%9C%A8%0AI%20came%20across%20your%20website%20and%20I%27d%20like%20to%20know%20more%20about%20your%20availability%20and%20rates." target="_blank" rel="noopener" data-abre-selecao class="btn-ghost">Book both of us</a>
+        </div>
       </div>
     </div>
   </section>
@@ -418,7 +437,7 @@
     <div class="section-head"><p class="label">Before you message me</p><h2>Frequently asked questions</h2></div>
     <div class="faq-wrap">
       <div class="faq-item"><button class="faq-q">How do I book a time?</button><div class="faq-a"><p>Via WhatsApp only. Send me a message with the day and time you would prefer and I will confirm availability. I do not see anyone without a prior appointment.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Which areas do you serve?</button><div class="faq-a"><p>I am in <strong>São Paulo</strong>, with <strong>my own place in Moema</strong>. You can meet me <strong>at my place (R$1,000/hour)</strong> or I come to your hotel, serviced apartment or Airbnb, anywhere in the city <strong>(R$1,500/hour)</strong>. I do not visit private residences.</p><p style="margin-top:12px">The address and time are arranged over WhatsApp once the booking is confirmed with a 50% deposit. On outcalls, transport is at your expense.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Which areas do you serve?</button><div class="faq-a"><p>I am in <strong>São Paulo</strong>, with <strong>my own place in Moema</strong>. You can meet me <strong>at my place (R$1,500/hour)</strong> or I come to your hotel, serviced apartment or Airbnb, anywhere in the city <strong>(R$2,000/hour)</strong>. I do not visit private residences.</p><p style="margin-top:12px">The address and time are arranged over WhatsApp once the booking is confirmed with a 50% deposit. On outcalls, transport is at your expense.</p></div></div>
       <div class="faq-item"><button class="faq-q">Are the photos real?</button><div class="faq-a"><p>Yes, every photo in the portfolio is mine and current. You will meet exactly the woman in the pictures.</p></div></div>
       <div class="faq-item"><button class="faq-q">How does discretion work?</button><div class="faq-a"><p>Your identity is never discussed with anyone, I do not keep conversations and I never publish anything that could identify who meets me. I expect the same discretion in return.</p></div></div>
       <div class="faq-item"><button class="faq-q">What payment methods do you accept?</button><div class="faq-a"><p>Pix, cash or credit card (fees apply). Cash in Brazilian reais is the simplest option for visitors from abroad.</p></div></div>
@@ -443,7 +462,7 @@
       <p class="label" style="color:var(--gold-pale);">Helena Rise</p>
       <h2>Ready to<br /><em>meet me?</em></h2>
       <p>Message me on WhatsApp and tell me the day you prefer. I answer personally and confirm right away if I have the time available.</p>
-      <p class="cta-price-line">R$ 1,000 at my place &middot; R$ 1,500 outcall</p>
+      <p class="cta-price-line">R$ 1,500 at my place &middot; R$ 2,000 outcall</p>
       <a href="https://wa.me/5527998524764?text=*Hi%20Helena%2C%20how%20are%20you%3F*%20%E2%9C%A8%0AI%20came%20across%20your%20website%20and%20I%27d%20like%20to%20know%20more%20about%20your%20availability%20and%20rates." target="_blank" rel="noopener" data-abre-selecao class="btn-wa">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.845L0 24l6.335-1.508A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.787 9.787 0 01-4.99-1.371l-.358-.213-3.761.896.957-3.667-.234-.374A9.774 9.774 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
         Message me
@@ -591,6 +610,11 @@
      "alternateName": "en"
     }
    ],
+   "knows": {
+    "@type": "Person",
+    "name": "Bianca Bicalho",
+    "url": "https://www.biancabicalho.com.br/"
+   },
    "worksFor": {
     "@id": "https://www.helenarise.com.br/#business"
    },
@@ -669,7 +693,7 @@
    "logo": "https://www.helenarise.com.br/acompanhante-de-luxo-sao-paulo-helena-rise.webp",
    "description": "Luxury escort in São Paulo, Brazil, with her own place in the Moema district. Receives at her place and also works outcall at hotels, serviced apartments and Airbnb across the city, by appointment, booked in advance and with limited availability.",
    "telephone": "+5527998524764",
-   "priceRange": "R$1,000 - R$12,000",
+   "priceRange": "R$1,500 - R$12,000",
    "currenciesAccepted": "BRL",
    "paymentAccepted": "Pix, Cash, Credit card",
    "address": {
@@ -759,7 +783,7 @@
     {
      "@type": "Offer",
      "name": "At my place in Moema — São Paulo (1 hour)",
-     "price": "1000",
+     "price": "1500",
      "priceCurrency": "BRL",
      "availability": "https://schema.org/InStock",
      "url": "https://www.helenarise.com.br/en/",
@@ -771,7 +795,7 @@
     {
      "@type": "Offer",
      "name": "Outcall — escort at your hotel, apartment or Airbnb in São Paulo (1 hour)",
-     "price": "1500",
+     "price": "2000",
      "priceCurrency": "BRL",
      "availability": "https://schema.org/InStock",
      "url": "https://www.helenarise.com.br/en/",
@@ -843,7 +867,7 @@
      "name": "Which areas of São Paulo do you serve?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "I am in São Paulo, with my own place in the Moema district. You can meet me at my place for R$1,000 an hour, or I come to your hotel, serviced apartment or Airbnb anywhere in the city for R$1,500 an hour. I do not visit private residences. The address and time are arranged over WhatsApp once the booking is confirmed with a 50% deposit. On outcalls, transport is at your expense."
+      "text": "I am in São Paulo, with my own place in the Moema district. You can meet me at my place for R$1,500 an hour, or I come to your hotel, serviced apartment or Airbnb anywhere in the city for R$2,000 an hour. I do not visit private residences. The address and time are arranged over WhatsApp once the booking is confirmed with a 50% deposit. On outcalls, transport is at your expense."
      }
     },
     {
